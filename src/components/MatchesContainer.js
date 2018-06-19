@@ -25,6 +25,7 @@ class MatchesContainer extends React.PureComponent {
     const isMatch = activeUser.sports.find(sport => {
       return match.sports.indexOf(sport)
     })
+
     if(typeof isMatch === "undefined") {
       return false
     }
@@ -65,9 +66,7 @@ class MatchesContainer extends React.PureComponent {
   render () {
     console.log(this.props);
       return (
-          <div>
-              <Matches matches={this.props.matches} accept={this.accept} reject={this.reject}/>
-          </div>
+        <Matches matches={this.props.matches} accept={this.accept} reject={this.reject}/>
       )
   }
 }
