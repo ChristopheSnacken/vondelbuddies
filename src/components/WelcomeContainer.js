@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 class Welcome extends React.PureComponent {
   state = {
     currentUser: {
-      new: true
+      new: false
     }
   }
   render() {

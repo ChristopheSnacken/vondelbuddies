@@ -1,14 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
-export default function Welcome(props) {
-  return (
-    <div className="welcome-page">
-      <h1 className="welcome-title">Welcome to VondelBuddies</h1>
-      <h2>Find your sport buddy</h2>
-      <label className="input-field-label" htmlFor="park-selector">Choose your park</label>
-      <input className="park-selector" id="park-selector" defaultValue="Vondelpark" />
-      <Link to={'./interests'}><button className="button">Let's begin</button></Link>
-    </div>
-  )
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.park-selector {
+  display: block;
+  border: 1px solid #000;
+  margin: auto;
 }
