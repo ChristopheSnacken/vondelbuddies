@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
+        <header className="app-header">
 
         </header>
         <main>
@@ -17,7 +17,7 @@ class App extends Component {
           <Route exact path="/profile" component={UserProfilesContainer} />
           <Route exact path="/matches" component={MatchesContainer} />
         </main>
-      
+
       </div>
     )
   }
