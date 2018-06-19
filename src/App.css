@@ -14,16 +14,17 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  justify-content: content;
+  align-content: space-between;
+  height: 100%;
 }
 
 .cta-button {
+  display: flex;
+  margin: auto;
   width: 80%;
   background-color: lightgrey;
   box-shadow: none;
   border: none;
   color: #fff;
-  bottom: 0;
-  margin-bottom: auto;
   align-self: flex-end;
 }
