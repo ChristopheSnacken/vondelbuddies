@@ -11,9 +11,19 @@ class Welcome extends React.PureComponent {
   }
   render() {
     if(this.state.currentUser.new) {
-      return <OnboardingMessage />
+      return (
+        <div>
+          <OnboardingMessage />
+          <Link to={'./interests'}><button className="cta-button">Continue</button></Link>
+        </div>
+      )
     } else {
-      return <WelcomeBackMessage />
+      return (
+        <div>
+          <WelcomeBackMessage />
+          <Link to={'./interests'}><button className="cta-button">Continue</button></Link>
+        </div>
+      )
     }
   }
 }
