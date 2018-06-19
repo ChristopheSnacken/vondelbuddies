@@ -17,7 +17,6 @@ class App extends Component {
           <Route exact path="/profile" component={UserProfilesContainer} />
           <Route exact path="/matches" component={MatchesContainer} />
         </main>
-      
       </div>
     )
   }
