@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Matches from '../components/Matches'
+import Matches from './Matches'
 
 const matches = [
     { id: 0, name: 'Henk', age: 30, activity: 'Running'},
@@ -24,3 +24,4 @@ class MatchesContainer extends Component {
 }
 
 export default MatchesContainer
+
