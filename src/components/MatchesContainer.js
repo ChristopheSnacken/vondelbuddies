@@ -5,6 +5,12 @@ import Matches from './Matches'
 
 class MatchesContainer extends Component {
 
+    // In componentDidMount: get activeUser and users from the store
+    // call getmatches action creator with activeUser and users 
+    // In getmatches action creator filter the users out that are not a match for the activeUser
+    // save matches to the store
+
+
     accept = id => console.log('accept ' + id);
     reject = id => console.log('reject ' + id);
 
