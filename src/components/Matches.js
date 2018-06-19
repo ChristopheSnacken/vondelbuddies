@@ -12,17 +12,10 @@ const styles = {
     backgroundColor: '#B3DC4A',
   },
 };
-<<<<<<< HEAD
-
-
-function Matches(props) {
-
-=======
 
 
 function Matches(props) {
     
->>>>>>> c5c4d7d672c84254df7c732ef0472207019cb047
     return (
         <BindKeyboardSwipeableViews enableMouseEvents>
             {
@@ -39,17 +32,9 @@ function Matches(props) {
                         </div>
                     )
                 })
-<<<<<<< HEAD
             }
-=======
-            }    
->>>>>>> c5c4d7d672c84254df7c732ef0472207019cb047
          </BindKeyboardSwipeableViews>
     );
 }
 
-<<<<<<< HEAD
 export default Matches;
-=======
-export default Matches;
->>>>>>> c5c4d7d672c84254df7c732ef0472207019cb047
