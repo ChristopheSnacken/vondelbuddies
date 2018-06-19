@@ -14,24 +14,26 @@ const styles = {
 };
 
 function Matches(props) {
-  return (
-    <BindKeyboardSwipeableViews enableMouseEvents>
-        {
-          props.matches.map((match) => {
-              return(
-                <div key={match.id} style={Object.assign({}, styles.slide)}>
-                  <ul>
-                    <li>{match.name}</li>
-                    <li>Age: {match.age}</li>
-                    <li>Activity: {match.activity}</li>
-                  </ul>
-                  <button onClick={()=>props.accept(match.id)}>Accept</button>
-                  <button onClick={()=>props.reject(match.id)}>Reject</button>
-                </div>
-              )
-          })
-        }
-     </BindKeyboardSwipeableViews>
+    
+    return (
+        <BindKeyboardSwipeableViews enableMouseEvents>
+            {
+                props.matches.map((match) => {
+                    return(
+                        <div key={match.id} style={Object.assign({}, styles.slide)}>
+                            <ul>
+                                <li>{match.name}</li>
+                                <li>Age: {match.age}</li>
+                                <li>Activity: {match.activity}</li>
+                            </ul>
+                            <button onClick={()=>props.accept(match.id)}>Accept</button>
+                            <button onClick={()=>props.reject(match.id)}>Reject</button>
+                        </div>
+                    )
+                })
+            }
+         </BindKeyboardSwipeableViews>
     );
 }
+
 export default Matches;
