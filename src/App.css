@@ -35,3 +35,8 @@ main {
 .cta-button:hover {
   background-color: grey;
 }
+
+header {
+  background-color: #216583;
+  min-height: 40px; 
+}
