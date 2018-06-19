@@ -23,7 +23,10 @@ function Matches(props) {
                   <ul>
                     <li>{match.name}</li>
                     <li>Age: {match.age}</li>
-                    <li>Activity: {match.activity}</li>
+                    <li>Level: {match.level}</li>
+                    <li>Park: {match.park}</li>
+                    <li>Bio: {match.bio}</li>
+                    <li>Activity:</li>
                   </ul>
                   <button onClick={()=>props.accept(match.id)}>Accept</button>
                   <button onClick={()=>props.reject(match.id)}>Reject</button>
