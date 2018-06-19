@@ -43,10 +43,6 @@ class MatchesContainer extends React.PureComponent {
     return activeUser.park === match.park
   }
 
-  updateMatchStatus = (id, status) => {
-
-  }
-
   accept = (id) => {
     const { matches } = this.props
     const newMatchIndex = matches
