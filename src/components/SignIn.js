@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { auth } from 'firebase';
+import { SignUpLink } from './SignUp';
+import { auth } from '../firebase';
 
 
-const Inloggen = ({ history }) =>
+const SignInPage = ({ history }) =>
   <div>
-    <h1>Inloggen</h1>
+    <h1>SignIn</h1>
     <SignInForm history={history} />
-   >
+    <SignUpLink />
   </div>
 
 const byPropKey = (propertyName, value) => () => ({
@@ -41,7 +42,6 @@ class SignInForm extends Component {
       .then(() => {
         this.setState(() => ({ ...INITIAL_STATE }));
         history.push('/');
-        console.log('gebruiker ingelogd')
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
@@ -76,7 +76,7 @@ class SignInForm extends Component {
           placeholder="Password"
         />
         <button disabled={isInvalid} type="submit">
-          Inloggen
+          Sign In
         </button>
 
         { error && <p>{error.message}</p> }
@@ -85,7 +85,7 @@ class SignInForm extends Component {
   }
 }
 
-export default withRouter(Inloggen);
+export default withRouter(SignInPage);
 
 export {
   SignInForm,
