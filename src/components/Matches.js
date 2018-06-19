@@ -24,7 +24,7 @@ function Matches(props) {
                     <li>{match.name}</li>
                     <li>Age: {match.age}</li>
                     <li>Level: {match.level}</li>
-                    <li>Park: {match.park}</li>
+                    <li>Parc: {match.park}</li>
                     <li>Bio: {match.bio}</li>
                     <li>Activity:</li>
                   </ul>
