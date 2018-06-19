@@ -13,7 +13,6 @@ const styles = {
   },
 };
 
-
 function Matches(props) {
     
     return (
