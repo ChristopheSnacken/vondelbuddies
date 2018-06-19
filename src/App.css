@@ -21,10 +21,17 @@ main {
 .cta-button {
   display: flex;
   margin: auto;
-  width: 80%;
+  width: 100%;
   background-color: lightgrey;
   box-shadow: none;
   border: none;
   color: #fff;
   align-self: flex-end;
+  position: absolute;
+  bottom: 5%;
+  text-align: center;
+}
+
+.cta-button:hover {
+  background-color: grey;
 }
