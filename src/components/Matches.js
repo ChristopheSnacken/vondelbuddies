@@ -1,25 +1,40 @@
-import  React  from  'react'
-import ReactDOM from 'react-dom'
-import ReactSwipe from 'react-swipe'
-import './Matches.css'
+import React from 'react';
+import SwipeableViews from 'react-swipeable-views';
+import { bindKeyboard } from 'react-swipeable-views-utils';
 
-export default class Carousel extends React.Component {
-  state = {
-    prevIndex: 0
-  }
+const BindKeyboardSwipeableViews = bindKeyboard(SwipeableViews);
 
-  renderMatches = (match, index) => {
-    return <div key={index} className="pane">test:{`${match.name}, ${match.age}`}</div>
-  }
+const styles = {
+  slide: {
+    padding: 15,
+    minHeight: 100,
+    color: '#fff',
+    backgroundColor: '#B3DC4A',
+  },
+};
 
-  render() {
+
+function Matches(props) {
+
     return (
-      <div className="swipe-wrap">
-        <ReactSwipe ref={reactSwipe => this.reactSwipe = reactSwipe} className="carousel" swipeOptions={{continuous: false, auto: 3000, callback: this.props.getSwipeDirection}}>
-          {this.props.matches.map(this.renderMatches)}
-        </ReactSwipe>
-        <button onClick={() => {this.reactSwipe.next()}}>Click</button>
-      </div>
+        <BindKeyboardSwipeableViews enableMouseEvents>
+            {
+                props.matches.map((match) => {
+                    return(
+                        <div key={match.id} style={Object.assign({}, styles.slide)}>
+                            <ul>
+                                <li>{match.name}</li>
+                                <li>Age: {match.age}</li>
+                                <li>Activity: {match.activity}</li>
+                            </ul>
+                            <button onClick={()=>props.accept(match.id)}>Accept</button>
+                            <button onClick={()=>props.reject(match.id)}>Reject</button>
+                        </div>
+                    )
+                })
+            }
+         </BindKeyboardSwipeableViews>
     );
-  }
 }
+
+export default Matches;
