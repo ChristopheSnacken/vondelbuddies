@@ -15,14 +15,14 @@ class Welcome extends React.PureComponent {
       return (
         <div>
           <OnboardingMessage />
-          <Link to={'./interests'}><button className="cta-button">Continue</button></Link>
+          <Link to={'./interests'}><button className="btn">Let's begin</button></Link>
         </div>
       )
     } else {
       return (
         <div>
           <WelcomeBackMessage />
-          <Link to={'./interests'}><button className="cta-button">Continue</button></Link>
+          <Link to={'./interests'}><button className="btn">Let's begin</button></Link>
         </div>
       )
     }

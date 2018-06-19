@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
-  font-family: Roboto, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
 
@@ -18,25 +18,18 @@ main {
   height: 100%;
 }
 
-.cta-button {
-  display: flex;
-  margin: auto;
-  width: 100%;
-  background-color: lightgrey;
-  box-shadow: none;
-  border: none;
-  color: #fff;
-  align-self: flex-end;
-  position: absolute;
-  bottom: 5%;
-  text-align: center;
-}
 
-.cta-button:hover {
-  background-color: grey;
-}
 
 header {
   background-color: #216583;
   min-height: 40px; 
+}
+
+
+.btn{
+  background-color: #65C0BA;
+  width: 80%;
+  height: 30px;
+  margin: 30px 0px;
+  color: white;
 }
