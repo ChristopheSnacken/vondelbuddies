@@ -11,7 +11,7 @@ class Welcome extends React.PureComponent {
     }
   }
   render() {
-    if(this.state.currentUser.new) {
+    if(this.props.activeUser.new === true) {
       return (
         <div>
           <OnboardingMessage />
@@ -30,7 +30,9 @@ class Welcome extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => {
-  return state.activeUser
+  return {
+    activeUser: state.activeUser
+  }
 }
 
 export default connect(mapStateToProps)(Welcome)
