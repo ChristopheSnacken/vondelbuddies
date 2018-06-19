@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import './App.css';
 
 import Welcome from './components/Welcome'
+import MatchesContainer from './components/MatchesContainer';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
       <div className="App">
         <h1>Hello VondelBuddies!</h1>
         <Route exact path="/" component={Welcome} />
+        <Route exact path="/matches" component={MatchesContainer} />
       </div>
     );
   }
