@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import Matches from './Matches'
 
 const matches = [
@@ -17,11 +18,20 @@ class MatchesContainer extends Component {
     render () {
         return (
             <div>
-                <Matches matches={matches} accept={this.accept} reject={this.reject}/>
+                <Matches matches={this.props.matches} accept={this.accept} reject={this.reject}/>
             </div>
         )
     }
 }
 
-export default MatchesContainer
+function mapStateToProps(state) {
+    return {
+        matches: state.matches
+    };
+}
+
+
+export default connect(
+    mapStateToProps,
+)(MatchesContainer);
 
