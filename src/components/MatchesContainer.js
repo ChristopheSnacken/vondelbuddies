@@ -5,8 +5,6 @@ import { updateMatches } from '../actions/matches'
 
 class MatchesContainer extends React.PureComponent {
   componentDidMount() {
-    console.log(updateMatches);
-    console.log(this.filterMatches());
     this.props.updateMatches(this.filterMatches())
   }
 
@@ -17,7 +15,8 @@ class MatchesContainer extends React.PureComponent {
         this.filterMatchesBySports(match, activeUser) &&
         this.filterMatchesByAge(match, activeUser) &&
         this.filterMatchesByLevel(match, activeUser) &&
-        this.filterMatchesByPark(match, activeUser)
+        this.filterMatchesByPark(match, activeUser) &&
+        !match.rejected
       )
     })
   }
@@ -55,6 +54,7 @@ class MatchesContainer extends React.PureComponent {
 
     matches[newMatchIndex].accepted = true
     this.props.updateMatches(matches)
+    this.filterMatches()
   }
 
   reject = (id) => {
@@ -63,7 +63,7 @@ class MatchesContainer extends React.PureComponent {
       .findIndex(match => match.id === id)
 
     matches[newMatchIndex].rejected = true
-    this.props.updateMatches(matches)
+    this.props.updateMatches(this.filterMatches(matches))
   }
 
   render () {
