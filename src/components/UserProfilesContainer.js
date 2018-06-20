@@ -9,105 +9,132 @@ import { updateUser } from '../actions/activeuser'
 import { Link } from 'react-router-dom'
 
 import { withStyles } from '@material-ui/core/styles';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+
+
+function getSteps() {
+  return ['What is your fitness level?', 'What is your gender', 'What is your age?'];
+}
 
 
 
 class Profile extends PureComponent {
   state = {
-   expanded: null,
- };
+    activeStep: 0,
+  };
 
- handleChange = panel => (event, expanded) => {
-   this.setState({
-     expanded: expanded ? panel : false,
-   });
- };
+  handleNext = () => {
+    this.setState({
+      activeStep: this.state.activeStep + 1,
+    });
+  };
+
+  handleBack = () => {
+    this.setState({
+      activeStep: this.state.activeStep - 1,
+    });
+  };
+
+  handleReset = () => {
+    this.setState({
+      activeStep: 0,
+    });
+  };
 
   updateactiveUserLevel = level => {
-      const {activeUser} = this.props
-      const newUser = activeUser
-      newUser.level = parseInt(level)
-      this.props.updateUser(newUser)
+    const {activeUser} = this.props
+    const newUser = activeUser
+    newUser.level = parseInt(level)
+    this.props.updateUser(newUser)
+}
+updateactiveUserGender = gender => {
+    const {activeUser} = this.props
+    const newUser = activeUser
+    newUser.gender = gender
+    this.props.updateUser(newUser)
+}
+updateactiveUserAge = age => {
+    const {activeUser} = this.props
+    const newUser = activeUser
+    newUser.age = parseInt(age)
+    this.props.updateUser(newUser)
+}
+getStepContent = step => {
+  switch (step) {
+    case 0:
+      return <Level updateLevel= {this.updateactiveUserLevel} />;
+    case 1:
+      return <Gender updateGender= {this.updateactiveUserGender}/>;
+    case 2:
+      return <Age updateAge= {this.updateactiveUserAge}/>;
+    default:
+      return 'Unknown step';
   }
-  updateactiveUserGender = gender => {
-      const {activeUser} = this.props
-      const newUser = activeUser
-      newUser.gender = gender
-      this.props.updateUser(newUser)
-  }
-  updateactiveUserAge = age => {
-      const {activeUser} = this.props
-      const newUser = activeUser
-      newUser.age = parseInt(age)
-      this.props.updateUser(newUser)
-  }
+}
 
-  render (){
-    const { expanded } = this.state;
+  render() {
+
+    const steps = getSteps();
+    const { activeStep } = this.state;
+
     return (
       <div>
-      <div>
-
         <h1> What about you? </h1>
+        <Stepper activeStep={activeStep} orientation="vertical">
+          {steps.map((label, index) => {
+            return (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+                <StepContent>
+                  <Typography>{this.getStepContent(index)}</Typography>
+                  <div >
+                    <div>
+                      <Button
+                        disabled={activeStep === 0}
+                        onClick={this.handleBack}
 
-        <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography >What is your fitness level?</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+                      >
+                        Back
+                      </Button>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={this.handleNext}
+
+                      >
+                        {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                      </Button>
+                    </div>
+                  </div>
+                </StepContent>
+              </Step>
+            );
+          })}
+        </Stepper>
+        {activeStep === steps.length && (
+          <Paper square elevation={0} >
             <Typography>
-              <Level updateLevel= {this.updateactiveUserLevel}/>
+              <Link to={ `/matches` }>
+                        <Button variant="contained">
+                          See your matches
+                        </Button>
+                      </Link>
             </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-
-        <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography >What is your gender?</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-              <Gender updateGender= {this.updateactiveUserGender}/>
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-
-        <ExpansionPanel expanded={expanded === 'panel3'} onChange={this.handleChange('panel3')}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography >What is your age?</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-              <Age updateAge= {this.updateactiveUserAge}/>
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-
-      <br/>
-
-
+            <Button onClick={this.handleReset} >
+              Reset
+            </Button>
+          </Paper>
+        )}
       </div>
-      <div className="matches">
-        <Link to={ `/matches` }>
-          <Button variant="contained">
-            See your matches
-          </Button>
-        </Link>
-
-      </div>
-    </div>
-
-
-    )
+    );
+  }
 }
-}
-
 const mapStateToProps = state => {
   console.log(state)
   return {

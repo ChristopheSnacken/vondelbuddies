@@ -17,20 +17,25 @@ export default class Level extends PureComponent {
 
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(event) {
   this.setState({
     level: event.target.value,
 
+    },()=>{
+      this.props.updateLevel(this.state.level);
     });
   }
 
-  handleSubmit(event) {
-  event.preventDefault();
-  this.props.updateLevel(this.state.level)
+//   handleSubmit(event) {
+//   event.preventDefault();
+//   this.props.updateLevel(this.state.level)
+//
+//
+// }
 
-}
 
 
 
@@ -80,9 +85,9 @@ export default class Level extends PureComponent {
                 </label>
               </li>
             </ul>
-          <Button variant="contained" type="submit">
+          {/* <Button variant="contained" type="submit">
             Submit
-          </Button>
+          </Button> */}
         </form>
     </div>
     )

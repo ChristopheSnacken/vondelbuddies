@@ -14,23 +14,19 @@ export default class Level extends PureComponent {
 
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
   this.setState({
     gender: event.target.value,
 
-    });
+  },()=>{
+    this.props.updateGender(this.state.gender);
+  });
+
   }
 
-  handleSubmit(event) {
-  event.preventDefault();
-  this.props.updateGender(this.state.gender);
-
-
-
-}
 
 
 
@@ -69,9 +65,6 @@ render (){
                 </li>
               </ul>
 
-              <Button variant="contained" type="submit">
-                Submit
-              </Button>
           </form>
 
       </div>
