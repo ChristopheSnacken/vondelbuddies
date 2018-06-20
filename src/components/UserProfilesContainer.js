@@ -4,12 +4,29 @@ import  Level  from './UserProfileComponents/level'
 import  Gender  from './UserProfileComponents/gender'
 import  Age  from './UserProfileComponents/age'
 import { connect } from 'react-redux'
-import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
 import { updateUser } from '../actions/activeuser'
+import { Link } from 'react-router-dom'
+
+import { withStyles } from '@material-ui/core/styles';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 
 
 class Profile extends PureComponent {
+  state = {
+   expanded: null,
+ };
+
+ handleChange = panel => (event, expanded) => {
+   this.setState({
+     expanded: expanded ? panel : false,
+   });
+ };
 
   updateactiveUserLevel = level => {
       const {activeUser} = this.props
@@ -31,14 +48,50 @@ class Profile extends PureComponent {
   }
 
   render (){
-    console.log(this.props)
+    const { expanded } = this.state;
     return (
       <div>
 
         <h1> What about you? </h1>
-        <Level updateLevel= {this.updateactiveUserLevel}/>
-        <Gender updateGender= {this.updateactiveUserGender}/>
-        <Age updateAge= {this.updateactiveUserAge}/>
+
+        <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography >What is your fitness level?</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              <Level updateLevel= {this.updateactiveUserLevel}/>
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+
+        <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography >What is your gender?</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              <Gender updateGender= {this.updateactiveUserGender}/>
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+
+        <ExpansionPanel expanded={expanded === 'panel3'} onChange={this.handleChange('panel3')}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography >What is your age?</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              <Age updateAge= {this.updateactiveUserAge}/>
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+
+      <br/>
+      <div className="matches">
+        <h1 className="link"><Link to={ `/matches` }>See your matches</Link></h1>
+      </div>
+
 
       </div>
 

@@ -1,11 +1,6 @@
 import React, { PureComponent } from 'react'
 import '../UserProfilesContainer.css'
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
+
 
 
 export default class Level extends PureComponent {
@@ -30,29 +25,17 @@ export default class Level extends PureComponent {
 
 
 
-render () {
-  return (
-    <div >
+  render () {
+    return (
+      <div >
+        <form onSubmit={this.handleSubmit}>
+            <label>
+              <input type="text" value={this.state.age} onChange={this.handleChange} />
+            </label>
+            <input className="submit" type="submit" value="Submit" />
+        </form>
 
-      <ExpansionPanel >
-              <ExpansionPanelSummary >
-
-                <Typography >What is your age?</Typography>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                <Typography >
-                  <form onSubmit={this.handleSubmit}>
-                      <label>
-                        Name:
-                        <input type="text" value={this.state.age} onChange={this.handleChange} />
-                      </label>
-                      <input type="submit" value="Submit" />
-                  </form>
-
-                </Typography>
-              </ExpansionPanelDetails>
-      </ExpansionPanel>
-    </div>
-  )
-}
+      </div>
+    )
+  }
 }
