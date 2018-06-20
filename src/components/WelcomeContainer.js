@@ -1,9 +1,7 @@
 import * as React from 'react'
 import OnboardingMessage from './OnboardingMessage'
 import WelcomeBackMessage from './WelcomeBackMessage'
-
 import { Link } from 'react-router-dom'
-
 import { connect } from 'react-redux'
 
 class Welcome extends React.PureComponent {
@@ -17,14 +15,12 @@ class Welcome extends React.PureComponent {
       return (
         <div className="welcome-page">
           <OnboardingMessage />
-          <Link to={'./interests'}><button className="btn">Let's begin</button></Link>
         </div>
       )
     } else {
       return (
         <div className="welcome-page">
           <WelcomeBackMessage />
-          <Link to={'./interests'}><button className="btn">Let's begin</button></Link>
         </div>
       )
     }
