@@ -1,12 +1,26 @@
 .matches {
+  margin-top: 1em;
   height: 100vh;
-}
-.my-matches {
-  justify-content: flex-start;
-  flex-direction: row;
-  width: 80%;
+  text-align: center;
 }
 
-hr.divider {
-  width: 80vw;
+.my-matches {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-left: 1em;
+  text-align: left;
+}
+
+.my-matches-title {
+  margin-left: 1em;
+  max-width: 90vw;
+  text-align: left;
+  border-bottom: 1px solid #979797;
+}
+
+.match-pic {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 1em;
 }
