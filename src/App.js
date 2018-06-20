@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import './App.css';
 import MatchesContainer from './components/MatchesContainer'
 import WelcomeContainer from './components/WelcomeContainer'
@@ -13,7 +13,13 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <SignOutButton />
+          {/* <SignOutButton /> */}
+          <div className="home">
+            <Link to={'./matches'}><button>Home</button></Link>
+          </div>
+          <div className="profile">
+            <Link to={'./profile'}><button>Profile</button></Link>
+          </div>
         </header>
         <main>
           <Route exact path="/" component={WelcomeContainer} />
