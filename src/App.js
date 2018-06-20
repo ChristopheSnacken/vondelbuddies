@@ -13,7 +13,6 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          {/* <SignOutButton /> */}
           <div className="home">
             <Link to={'./matches'}><button>Home</button></Link>
           </div>

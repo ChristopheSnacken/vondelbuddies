@@ -9,6 +9,10 @@ const initialState = [
     { id: 5, name: 'Jantje Smit', age: 32, level: 0, park: 'Vondelpark', sports: ['Skating',] , new: true, bio: "", accepted: false, rejected: false, phone: "31646336626"},
     { id: 6, name: 'Piet Paulesma', age: 62, level: 0, park: 'Vondelpark', sports: ['Tourist Egging',] , new: true, bio: "", accepted: false, rejected: false, phone: "31646336626"},
     { id: 7, name: 'Gerrit Hiemstra', age: 62, level: 0, park: 'Vondelpark', sports: ['Running',] , new: true, bio: "", accepted: false, rejected: false, phone: "31646336626"},
+    { id: 8, name: 'Jantje Smit', age: 32, level: 0, park: 'Vondelpark', sports: ['Skating',] , new: true, bio: "", accepted: false, rejected: false, phone: "31646336626"},
+    { id: 9, name: 'Jantje Smit', age: 32, level: 0, park: 'Vondelpark', sports: ['Skating',] , new: true, bio: "", accepted: false, rejected: false, phone: "31646336626"},
+    { id: 10, name: 'Jantje Smit', age: 32, level: 0, park: 'Vondelpark', sports: ['Skating',] , new: true, bio: "", accepted: false, rejected: false, phone: "31646336626"},
+    { id: 11, name: 'Jantje Smit', age: 32, level: 0, park: 'Vondelpark', sports: ['Skating',] , new: true, bio: "", accepted: false, rejected: false, phone: "31646336626"},
 ]
 
 const reducer = (state = initialState, action ) => {
