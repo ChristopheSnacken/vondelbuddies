@@ -73,7 +73,6 @@ class Matches extends React.PureComponent {
       </div>
     )
   }
-
 }
 
 export default Matches;
