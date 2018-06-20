@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { auth, db } from '../firebase';
 import { Link, withRouter } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
 
 const SignUpPage = ({ history }) =>
   <div>
-    <h1>SignUp</h1>
+     <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
     <SignUpForm history={history} />
 </div>
 
@@ -80,31 +81,35 @@ class SignUpForm extends Component {
 
     return (
         <form onSubmit={this.onSubmit}>
-          <input
+          <TextField
             value={username}
             onChange={event => this.setState(byPropKey('username', event.target.value))}
             type="text"
             placeholder="Full Name"
+            className="text-field"
           />
-          <input
+          <TextField
             value={email}
             onChange={event => this.setState(byPropKey('email', event.target.value))}
             type="text"
             placeholder="Email Address"
+            className="text-field"
           />
-          <input
+         <TextField
             value={passwordOne}
             onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
             type="password"
             placeholder="Password"
+            className="text-field"
           />
-          <input
+         <TextField
             value={passwordTwo}
             onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
             type="password"
             placeholder="Confirm Password"
+            className="text-field"
           />
-         <button disabled={isInvalid} type="submit">
+         <button className="btn" disabled={isInvalid} type="submit">
             Sign Up
           </button>
   
@@ -115,11 +120,7 @@ class SignUpForm extends Component {
 }
 
 const SignUpLink = () =>
-  <p>
-    Don't have an account?
-    {' '}
-    <Link to={'/signup'}>Sign Up</Link>
-  </p>
+  <p><Link to={'/signup'}>Create account</Link> </p>
 
 
 
