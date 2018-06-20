@@ -37,9 +37,9 @@ export default class Level extends PureComponent {
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit} className="Profile">
-          <div >
-            <ul className="Profile">
+        <form onSubmit={this.handleSubmit} >
+          <div className="Profile">
+            <ul >
               <li>
                 <label>
                   <Radio

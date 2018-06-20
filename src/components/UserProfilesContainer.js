@@ -126,7 +126,7 @@ getStepContent = step => {
                         </Button>
                       </Link>
             </Typography>
-            <Button onClick={this.handleReset} >
+            <Button className= "reset" onClick={this.handleReset} >
               Reset
             </Button>
           </Paper>
