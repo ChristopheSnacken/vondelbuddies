@@ -13,14 +13,14 @@ class Welcome extends React.PureComponent {
   render() {
     if(this.props.activeUser.new === true) {
       return (
-        <div>
+        <div className="welcome-page">
           <OnboardingMessage />
           <Link to={'./interests'}><button className="btn">Let's begin</button></Link>
         </div>
       )
     } else {
       return (
-        <div>
+        <div className="welcome-page">
           <WelcomeBackMessage />
           <Link to={'./interests'}><button className="btn">Let's begin</button></Link>
         </div>
