@@ -9,19 +9,18 @@ import './Interests.css';
 export default class Interest extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {sports: ''};
+    this.state = {sports: []};
 
     this.handleChange = this.handleChange.bind(this);
 
   }
 
   handleChange(event) {
-    this.setState({sports: event.target.value}
-      ,()=>{
-        this.props.updateInterest(this.state.sports);
-      });
-
-  }
+    this.setState({ sports: [...this.state.sports, event.target.value] }
+    ,()=>{
+    this.props.updateInterest(this.state.sports);
+  });
+}
 
   render () {
 
@@ -32,24 +31,24 @@ export default class Interest extends PureComponent {
       <div  >
 
           <List component="nav">
-            <Button className= "sport" disabled = {this.state.sports === "sport"} variant="contained" type="submit" value= "sport" onClick={this.handleChange}>
-              Sport
+            <Button className= "sport" disabled = {this.state.sports.includes("Running")} variant="contained" type="submit" value= "Running" onClick={this.handleChange}>
+              Running
             </Button>
             <Divider />
-            <Button className= "sport" disabled = {this.state.sports === "sport1"} variant="contained" type="submit" value= "sport1" onClick={this.handleChange}>
-              Sport1
+            <Button className= "sport" disabled = {this.state.sports.includes("Bootcamp")} variant="contained" type="submit" value= "Bootcamp" onClick={this.handleChange}>
+              Bootcamp
             </Button>
             <Divider />
-            <Button className= "sport" disabled = {this.state.sports === "sport2"} variant="contained" type="submit" value= "sport2" onClick={this.handleChange}>
-              Sport2
+            <Button className= "sport" disabled = {this.state.sports.includes("Tourist Egging")} variant="contained" type="submit" value= "Tourist Egging" onClick={this.handleChange}>
+              Tourist Egging
             </Button>
             <Divider />
-            <Button className= "sport" disabled = {this.state.sports === "sport3"} variant="contained" type="submit" value= "sport3" onClick={this.handleChange}>
-              Sport3
+            <Button className= "sport" disabled = {this.state.sports.includes("Rollerblading")} variant="contained" type="submit" value= "Rollerblading" onClick={this.handleChange}>
+              Rollerblading
             </Button>
             <Divider />
-            <Button className= "sport" disabled = {this.state.sports === "sport4"} variant="contained" type="submit" value= "sport4" onClick={this.handleChange}>
-              Sport4
+            <Button className= "sport" disabled = {this.state.sports.includes("Cycling")} variant="contained" type="submit" value= "Cycling" onClick={this.handleChange}>
+              Cycling
             </Button>
             <Divider />
           </List>
