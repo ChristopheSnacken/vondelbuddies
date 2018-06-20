@@ -7,6 +7,7 @@ import  Interest  from './Interests'
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import './Interests.css';
 
 class InterestContainer extends PureComponent {
   updateactiveUserInterest = sports => {
@@ -25,7 +26,7 @@ render () {
     <Paper square elevation={0} >
       <Typography>
         <Link to={ `/matches` }>
-                  <Button variant="contained">
+                  <Button className="headerButton" variant="contained">
                     See your matches
                   </Button>
                 </Link>
