@@ -48,13 +48,13 @@ class SignUpForm extends Component {
         db.doCreateUser(authUser.user.uid, username, email)
           .then(() => {
             this.setState(() => ({ ...INITIAL_STATE }));
-            history.push('/');
+            history.push('/matches');
           })
           .catch(error => {
             this.setState(byPropKey('error', error));
           });
-          
-       
+
+
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
@@ -72,7 +72,7 @@ class SignUpForm extends Component {
         passwordTwo,
         error,
       } = this.state;
-    
+
       const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
@@ -116,7 +116,7 @@ class SignUpForm extends Component {
          <button className="btn" disabled={isInvalid} type="submit">
             Sign Up
           </button>
-  
+
           { error && <p>{error.message}</p> }
         </form>
       );
