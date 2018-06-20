@@ -47,7 +47,7 @@ class Profile extends PureComponent {
     });
   };
 
-  updateactiveUserLevel = level => {
+updateactiveUserLevel = level => {
     const {activeUser} = this.props
     const newUser = activeUser
     newUser.level = parseInt(level)

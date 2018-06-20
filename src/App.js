@@ -5,6 +5,7 @@ import MatchesContainer from './components/MatchesContainer'
 import WelcomeContainer from './components/WelcomeContainer'
 import UserProfilesContainer from './components/UserProfilesContainer'
 import MyMatchesContainer from './components/MyMatchesContainer'
+import InterestsContainer from './components/InterestsContainer'
 import Login from './components/SignIn'
 import SignUp from './components/SignUp'
 // import SignOutButton from './components/SignOut';
@@ -28,6 +29,7 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/profile" component={UserProfilesContainer} />
           <Route exact path="/matches" component={MatchesContainer} />
+          <Route exact path="/interests" component={InterestsContainer} />
         </main>
       </div>
     )
