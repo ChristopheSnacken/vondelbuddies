@@ -17,12 +17,9 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-
 function getSteps() {
   return ['What is your fitness level?', 'What is your gender', 'What is your age?'];
 }
-
-
 
 class Profile extends PureComponent {
   state = {
@@ -98,7 +95,7 @@ getStepContent = step => {
                       <Button
                         disabled={activeStep === 0}
                         onClick={this.handleBack}
-
+                        className="button-profile back-button-profile"
                       >
                         Back
                       </Button>
@@ -106,7 +103,7 @@ getStepContent = step => {
                         variant="contained"
                         color="primary"
                         onClick={this.handleNext}
-
+                        className="button-profile next-button-profile"
                       >
                         {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                       </Button>
@@ -121,10 +118,10 @@ getStepContent = step => {
           <Paper square elevation={0} >
             <Typography>
               <Link to={ `/matches` }>
-                        <Button variant="contained">
-                          See your matches
-                        </Button>
-                      </Link>
+                <Button variant="contained" underlineStyle={{display: 'none'}} className="button-profile submit-button-profile">
+                  See your matches
+                </Button>
+              </Link>
             </Typography>
             <Button onClick={this.handleReset} >
               Reset

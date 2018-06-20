@@ -1,52 +1,24 @@
-/* @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-
-
-.MuiTypography-root-40 {
-  width: 100%;
-}
-form {
-  max-width: 800px;
-  background-color: #fff;
-  margin: 0 auto;
-  padding: 20px;
+.button-profile {
+  width: 90%;
+  box-shadow: 2px 3px 0 0 #979797!important;
+  margin-bottom: 1em!important;
+  border-radius: 0px!important;
 }
 
-
-
-label {
-  display: flex;
-  align-items: center;
+.next-button-profile {
+  background-color: #65C0BA!important;
 }
 
-input[type="radio"] {
-  margin: 0 20px 0 0;
+.back-button-profile {
+  width: 90%;
+  background-color: #eee!important;
+  color: #979797;
 }
 
-.title {
-  font-weight: bold;
-  font-size: 18px;
+.submit-button-profile span.MuiButton-label-116 {
+  display: inline-block!important;
 }
 
-.submit {
-  border: 0;
-  font-family: inherit;
-  font-size: inherit;
-  outline: none;
-  cursor: pointer;
-  background-color: #7E57C2;
-  color: #fff;
-  padding: 10px 30px;
-  border-radius: 5px;
+circle {
+  color: pink;
 }
-
-.submit:hover {
-  background-color: #673AB7;
-}
-
-.submit:active {
-  transform: translateY(1px);
-}
-
-.Progress {
-  width: 80%;
-} */
