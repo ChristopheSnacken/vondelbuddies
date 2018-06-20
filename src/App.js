@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom'
 import './App.css';
 import MatchesContainer from './components/MatchesContainer'
-import MyMatchesContainer from './components/MyMatchesContainer'
 import WelcomeContainer from './components/WelcomeContainer'
 import UserProfilesContainer from './components/UserProfilesContainer'
 import MyMatchesContainer from './components/MyMatchesContainer'
@@ -29,7 +28,6 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/profile" component={UserProfilesContainer} />
           <Route exact path="/matches" component={MatchesContainer} />
-          <Route exact path="/my-matches" component={MyMatchesContainer} />
         </main>
       </div>
     )
