@@ -31,11 +31,14 @@ class Matches extends React.PureComponent {
     switch(action) {
       case 'accept':
         this.props.accept(id)
-        if(index > 0) index --
         break
       case 'reject':
         this.props.reject(id)
-        if(index < this.props.matches.length) index ++
+        if(index < (this.props.matches.length -1)) {
+          index ++
+        }  else {
+          index = 0
+        }
         break
       default:
         break
