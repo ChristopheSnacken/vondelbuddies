@@ -12,8 +12,9 @@ export default class Interest extends PureComponent {
     this.state = {sports: []};
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleReset = this.handleReset.bind(this);
 
-  }
+}
 
   handleChange(event) {
     this.setState({ sports: [...this.state.sports, event.target.value] }
@@ -21,30 +22,14 @@ export default class Interest extends PureComponent {
     this.props.updateInterest(this.state.sports);
   });
 }
-  handleReset (event) {
+  handleReset () {
     this.setState({ sports: [] }
     ,()=>{
     this.props.updateInterest(this.state.sports);
-    });
-  };
+  });
+}
 
-// his.setState({myArray: []});
 
-// handleChange(event, first_click) {
-//     first_click = true;
-//     if (first_click) {
-//       this.setState({ sports: [...this.state.sports, event.target.value] }
-//       ,()=>{
-//       this.props.updateInterest(this.state.sports);
-//     });
-//         first_click = false;
-//     } else {
-//       this.setState({ sports: [...this.state.sports, "bla"] }
-//       ,()=>{
-//       this.props.updateInterest(this.state.sports);
-//     });
-// }
-// }
   render () {
 
 
