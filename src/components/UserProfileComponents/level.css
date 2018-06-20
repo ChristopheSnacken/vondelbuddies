@@ -2,8 +2,15 @@
   float: Left;
   padding-left: 20px;
   padding-right: 20px;
+
 }
 
 .Profile ul {
   list-style: none;
+}
+
+.radiomiddle {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

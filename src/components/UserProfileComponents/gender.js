@@ -40,6 +40,7 @@ render (){
                 <li>
                   <label>
                     <Radio
+                      className="profileRadio"
                       checked={this.state.gender === "Male"}
                       onChange={this.handleChange}
                       value="Male"
@@ -53,6 +54,7 @@ render (){
                 <li>
                   <label>
                     <Radio
+                      className="profileRadio"
                       checked={this.state.gender === "Female"}
                       onChange={this.handleChange}
                       value="Female"

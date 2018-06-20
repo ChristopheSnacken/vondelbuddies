@@ -84,17 +84,17 @@ getStepContent = step => {
 
     return (
       <div>
-        <h1> What about you? </h1>
-        <Stepper activeStep={activeStep} orientation="vertical">
+        <h1 className="headerProfile"> What about you? </h1>
+        <Stepper  activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => {
             return (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
+              <Step  key={label}>
+                <StepLabel >{label}</StepLabel>
                 <StepContent>
                   <Typography>{this.getStepContent(index)}</Typography>
                   <div >
                     <div>
-                      <Button
+                      <Button className= "Back"
                         disabled={activeStep === 0}
                         onClick={this.handleBack}
 
@@ -102,6 +102,7 @@ getStepContent = step => {
                         Back
                       </Button>
                       <Button
+                        className ="Next"
                         variant="contained"
                         color="primary"
                         onClick={this.handleNext}
@@ -120,7 +121,7 @@ getStepContent = step => {
           <Paper square elevation={0} >
             <Typography>
               <Link to={ `/matches` }>
-                        <Button variant="contained">
+                        <Button className ="profileMatches" variant="contained">
                           See your matches
                         </Button>
                       </Link>
