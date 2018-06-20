@@ -1,0 +1,15 @@
+button, input {
+  outline: 1px solid #000;
+  background-color: transparent;
+}
+
+button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.plus-button, .minus-button {
+  box-shadow: none;
+  margin-right: 1em;
+  border: none;
+}
