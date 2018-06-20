@@ -18,7 +18,7 @@ class App extends Component {
             <Link to={'./matches'}><button><img src={require('./img/home_icon.png')} alt="home"/></button></Link>
           </div>
           <div className="profile">
-            <Link to={'./profile'}><button><img src={require('./img/profile_icon.png')} alt="profile"/></button></Link>
+            <Link to={'./mymatches'}><button><img src={require('./img/profile_icon.png')} alt="profile"/></button></Link>
           </div>
         </header>
         <main>
