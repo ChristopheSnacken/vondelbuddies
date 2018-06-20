@@ -16,10 +16,10 @@ class App extends Component {
       <div className="App">
         <header>
           <div className="home">
-            <Link to={'./matches'}><button><img src={require('./img/search_icon.png')} alt="home"/></button></Link>
+            <Link to={'./matches'}><img src={require('./img/search_icon.png')} alt="home"/></Link>
           </div>
           <div className="profile">
-            <Link to={'./profile'}><button><img src={require('./img/profile_icon.png')} alt="profile"/></button></Link>
+            <Link to={'./profile'}><img src={require('./img/profile_icon.png')} alt="profile"/></Link>
           </div>
         </header>
         <main>
