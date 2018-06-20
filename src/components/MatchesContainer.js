@@ -1,27 +1,82 @@
-import React, { Component } from 'react'
+import * as React from 'react'
+import { connect } from 'react-redux';
 import Matches from './Matches'
+import { updateMatches } from '../actions/matches'
 
-const matches = [
-    { id: 0, name: 'Henk', age: 30, activity: 'Running'},
-    { id: 1, name: 'Piet', age: 32, activity: 'Skating'},
-    { id: 2, name: 'Truus', age: 31, activity: 'Dancing'},
-    { id: 3, name: 'Ingrid', age: 20, activity: 'Tourist egging'},
-    { id: 4, name: 'Joop', age: 62, activity: 'Running'},
-]
+class MatchesContainer extends React.PureComponent {
+  componentDidMount() {
+    this.props.updateMatches(this.filterMatches())
+  }
 
-class MatchesContainer extends Component {
+  filterMatches = () => {
+    const { activeUser, matches } = this.props
+    return matches.filter(match => {
+      return (
+        this.filterMatchesBySports(match, activeUser) &&
+        this.filterMatchesByAge(match, activeUser) &&
+        this.filterMatchesByLevel(match, activeUser) &&
+        this.filterMatchesByPark(match, activeUser) &&
+        !match.rejected
+      )
+    })
+  }
 
-    accept = id => console.log('accept ' + id);
-    reject = id => console.log('reject ' + id);
+  filterMatchesBySports = (match, activeUser) => {
+    const isMatch = activeUser.sports.find(sport => {
+      return match.sports.indexOf(sport)
+    })
 
-    render () {
-        return (
-            <div>
-                <Matches matches={matches} accept={this.accept} reject={this.reject}/>
-            </div>
-        )
+    if(typeof isMatch === "undefined") {
+      return false
     }
+    return true
+  }
+
+  filterMatchesByAge = (match, activeUser) => {
+    return Math.abs(activeUser.age - match.age) <= 5
+  }
+
+  filterMatchesByLevel = (match, activeUser) => {
+    return Math.abs(activeUser.level - match.level) <= 1
+  }
+
+  filterMatchesByPark = (match, activeUser) => {
+    return activeUser.park === match.park
+  }
+
+  accept = (id) => {
+    const { matches } = this.props
+    const newMatchIndex = matches
+      .findIndex(match => match.id === id)
+
+    matches[newMatchIndex].accepted = true
+    this.props.updateMatches(matches)
+    this.filterMatches()
+  }
+
+  reject = (id) => {
+    const { matches } = this.props
+    const newMatchIndex = matches
+      .findIndex(match => match.id === id)
+
+    matches[newMatchIndex].rejected = true
+    this.props.updateMatches(this.filterMatches(matches))
+  }
+
+  render () {
+    console.log(this.props);
+      return (
+        <Matches matches={this.props.matches} accept={this.accept} reject={this.reject}/>
+      )
+  }
 }
 
-export default MatchesContainer
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+    matches: state.matches,
+    activeUser: state.activeUser
+  };
+}
 
+export default connect(mapStateToProps, { updateMatches })(MatchesContainer);
