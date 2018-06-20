@@ -4,22 +4,66 @@
 }
 
 .match-img{
-    background-color: #d8d8d8;
-    height: 200px;
+  background-color: #d8d8d8;
+  height: fit-content;
+  padding: 0px;
+  overflow: hidden;
 }
 
+.match-img img{
+ padding: 0px;
+ margin: 0px;
+ width: 100%;
+}
 .match-info {
- text-align: left;
- list-style: none;
+  text-align: left;
+  list-style: none;
+  padding: 0px 20px;
+  position: absolute;
+  z-index: 900;
+  background-color: white;
+  width: 100%;
+}
+
+.match-info li {
+  float: none!important;
+  margin: 8px 0px;
 }
 
 .chat-btn {
   text-decoration: none;
   border-radius: 0;
   margin: auto;
-  box-shadow: 2px 3px 0 0 #979797;
 }
 
 .swipe-container {
   height: 100%;
+
 }
+
+.match-control-buttons{
+  position: absolute;
+  bottom: 0px;
+  width: 80%;
+  bottom: -75px;
+}
+
+.match-control-chat{
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0px;
+  width: 90%;
+  text-decoration: none;
+ }
+
+
+
+.match-control-accept{
+ float: left;
+}
+
+.match-control-decline{
+  
+  float: right;
+ }

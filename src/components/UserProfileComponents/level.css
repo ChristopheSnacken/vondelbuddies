@@ -1,0 +1,9 @@
+.Profile li {
+  float: Left;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.Profile ul {
+  list-style: none;
+}

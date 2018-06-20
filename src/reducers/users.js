@@ -14,12 +14,6 @@ const initialState = [
 
 
 
-// const reducer = (state = initialState, action ) => {
-//   switch(action.type) {
-//     case USERS:
-//       return {...action.payload}
-//     default:
-//       return state
-//   }
-// }
-// export default reducer
+export default (state = initialState, action = {}) => {
+    return state
+}

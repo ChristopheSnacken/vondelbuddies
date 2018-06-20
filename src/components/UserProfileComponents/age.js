@@ -1,84 +1,79 @@
 import React, { PureComponent } from 'react'
 import '../UserProfilesContainer.css'
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 
 
 export default class Level extends PureComponent {
-  constructor() {
-    super();
 
-    this.state = {
-      age: '',
+  constructor(props) {
+    super(props);
+    this.state = {age: ''};
 
-    };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(event) {
-  this.setState({
-    age: event.target.value,
-
-    });
+    this.setState({age: event.target.value}
+      ,()=>{
+        this.props.updateAge(this.state.age);
+      });
   }
 
-  handleSubmit(event) {
-  event.preventDefault();
-
-  alert(`You are ${this.state.age} years old`);
-
-}
-
-render () {
-  return (
-    <div >
-
-      <ExpansionPanel >
-              <ExpansionPanelSummary >
-
-                <Typography >What is your age categorie?</Typography>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                <Typography >
-                  <form onSubmit={this.handleSubmit}>
 
 
-                      <ul className="inputForm">
-                        <li>
-                          <label>
-                            <input
-                              type="radio"
-                              value="20"
-                              checked={this.state.age === "20"}
-                              onChange={this.handleChange}
-                            />
-                            20 - 30
-                          </label>
-                        </li>
 
-                        <li>
-                          <label>
-                            <input
-                              type="radio"
-                              value="30"
-                              checked={this.state.age === "30"}
-                              onChange={this.handleChange}
-                            />
-                            30 - 40
-                          </label>
-                        </li>
-                      </ul>
 
-                    <button className="submit" type="submit">Submit</button>
-                  </form>
-              </Typography>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-    </div>
-  )
-}
+
+  render () {
+
+    // const N = 99;
+    // const ageArray = Array.apply(null, {length: N}).map(Number.call, Number)
+
+
+    return (
+
+      <div  >
+        <form onSubmit={this.handleSubmit}>
+
+          <FormControl  onSubmit={this.handleSubmit}>
+            <InputLabel htmlFor="age-simple">Age</InputLabel>
+              <Select
+                value={this.state.age}
+                onChange={this.handleChange}
+                inputProps={{
+                  name: 'age',
+                  id: 'age-simple',
+                }}
+              >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+
+            <MenuItem value={20}>20</MenuItem>
+            <MenuItem value={25}>25</MenuItem>
+            <MenuItem value={30}>30</MenuItem>
+            <MenuItem value={35}>35</MenuItem>
+            <MenuItem value={40}>40</MenuItem>
+            <MenuItem value={45}>45</MenuItem>
+            <MenuItem value={50}>50</MenuItem>
+
+          </Select>
+        </FormControl>
+
+
+        </form>
+
+      </div>
+    )
+  }
 }
