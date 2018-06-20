@@ -21,7 +21,30 @@ export default class Interest extends PureComponent {
     this.props.updateInterest(this.state.sports);
   });
 }
+  handleReset (event) {
+    this.setState({ sports: [] }
+    ,()=>{
+    this.props.updateInterest(this.state.sports);
+    });
+  };
 
+// his.setState({myArray: []});
+
+// handleChange(event, first_click) {
+//     first_click = true;
+//     if (first_click) {
+//       this.setState({ sports: [...this.state.sports, event.target.value] }
+//       ,()=>{
+//       this.props.updateInterest(this.state.sports);
+//     });
+//         first_click = false;
+//     } else {
+//       this.setState({ sports: [...this.state.sports, "bla"] }
+//       ,()=>{
+//       this.props.updateInterest(this.state.sports);
+//     });
+// }
+// }
   render () {
 
 
@@ -33,7 +56,7 @@ export default class Interest extends PureComponent {
           <h1 className= "headerInterest"> What activities are you looking for?</h1>
 
           <List component="nav">
-            <Button className= "sport" disabled = {this.state.sports.includes("Running")} variant="contained" type="submit" value= "Running" onClick={this.handleChange}>
+            <Button className= "sport"  disabled = {this.state.sports.includes("Running")} variant="contained" type="submit" value= "Running" onClick={this.handleChange}>
               Running
             </Button>
 
@@ -54,6 +77,9 @@ export default class Interest extends PureComponent {
             </Button>
 
           </List>
+          <Button className= "reset" type="submit" onClick={this.handleReset} >
+            Reset
+          </Button>
 
 
       </div>
