@@ -1,6 +1,6 @@
 .match-container {
 
-    
+
 }
 
 .match-img{
@@ -8,9 +8,18 @@
     height: 200px;
 }
 
-
 .match-info {
-
  text-align: left;
- list-style: none;   
+ list-style: none;
+}
+
+.chat-btn {
+  text-decoration: none;
+  border-radius: 0;
+  margin: auto;
+  box-shadow: 2px 3px 0 0 #979797;
+}
+
+.swipe-container {
+  height: 100%;
 }
