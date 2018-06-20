@@ -41,7 +41,7 @@ class SignInForm extends Component {
     auth.doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState(() => ({ ...INITIAL_STATE }));
-        history.push('/');
+        history.push('/matches');
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
@@ -64,8 +64,6 @@ class SignInForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
 
-    
-    
          <TextField
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}

@@ -1,18 +1,15 @@
 import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
-import { bindKeyboard, virtualize } from 'react-swipeable-views-utils';
+import { bindKeyboard } from 'react-swipeable-views-utils';
 import './Matches.css';
-import Grid from '@material-ui/core/Grid';
-
 
 
 const BindKeyboardSwipeableViews = bindKeyboard(SwipeableViews);
-const VirtualizeSwipeableViews = virtualize(SwipeableViews);
 
 const styles = {
   slide: {
     padding: 0,
-    minHeight: 100,
+    height: '90vh',
   },
 };
 
@@ -61,13 +58,13 @@ class Matches extends React.PureComponent {
           <li><b>Activities:</b> {match.sports.join(", ")}</li>
           {!match.accepted &&
             <div className="match-control-buttons">
-              <button onClick={()=>this.onClickHandler(match.id, "accept")}>Accept</button>
-              <button onClick={()=>this.onClickHandler(match.id, "reject")}>Reject</button>
+              <button className="match-control-accept" onClick={()=>this.onClickHandler(match.id, "accept")}><img src={require('../img/accept.png')} alt="accept"/></button>
+              <button className="match-control-decline" onClick={()=>this.onClickHandler(match.id, "reject")}><img src={require('../img/decline.png')} alt="reject"/></button>
             </div>
           }
 
           { match.accepted &&
-            <a className="btn chat-btn " href={`https://api.whatsapp.com/send?phone=${match.phone}`}>Send WhatsApp</a>
+            <a className="match-control-chat" href={`https://api.whatsapp.com/send?phone=${match.phone}`}><button className="btn">Send WhatsApp</button></a>
           }
         </ul>
       </div>

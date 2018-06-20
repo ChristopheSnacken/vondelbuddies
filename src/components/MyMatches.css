@@ -1,0 +1,12 @@
+.matches {
+  height: 100vh;
+}
+.my-matches {
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 80%;
+}
+
+hr.divider {
+  width: 80vw;
+}
