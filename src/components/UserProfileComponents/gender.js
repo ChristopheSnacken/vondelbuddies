@@ -27,8 +27,9 @@ export default class Level extends PureComponent {
 
   handleSubmit(event) {
   event.preventDefault();
+  this.props.updateGender(this.state.gender);
 
-  alert(`You are  ${this.state.gender} `);
+
 
 }
 
@@ -47,7 +48,7 @@ render (){
                 <ExpansionPanelDetails>
                   <Typography>
         <form onSubmit={this.handleSubmit}>
-          
+
 
             <ul>
               <li>

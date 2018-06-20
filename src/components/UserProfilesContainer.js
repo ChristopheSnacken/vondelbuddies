@@ -6,31 +6,39 @@ import  Age  from './UserProfileComponents/age'
 import { connect } from 'react-redux'
 import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
+import { updateUser } from '../actions/activeuser'
 
 
 class Profile extends PureComponent {
 
+  updateactiveUserLevel = level => {
+      const {activeUser} = this.props
+      const newUser = activeUser
+      newUser.level = parseInt(level)
+      this.props.updateUser(newUser)
+  }
+  updateactiveUserGender = gender => {
+      const {activeUser} = this.props
+      const newUser = activeUser
+      newUser.gender = gender
+      this.props.updateUser(newUser)
+  }
+  updateactiveUserAge = age => {
+      const {activeUser} = this.props
+      const newUser = activeUser
+      newUser.age = parseInt(age)
+      this.props.updateUser(newUser)
+  }
 
   render (){
+    console.log(this.props)
     return (
       <div>
-        <Progress
-          type="circle"
-          className= "Progress"
-          percent={88}
-          status="success"
-          theme={{
-            success: {
-              symbol: '🏄‍',
-              color: '#4daa57',
 
-            }
-          }}
-        />
         <h1> What about you? </h1>
-        <Level />
-        <Gender />
-        <Age />
+        <Level updateLevel= {this.updateactiveUserLevel}/>
+        <Gender updateGender= {this.updateactiveUserGender}/>
+        <Age updateAge= {this.updateactiveUserAge}/>
 
       </div>
 
@@ -40,10 +48,12 @@ class Profile extends PureComponent {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
-    state
+    activeUser: state.activeUser
+
   }
 }
 
 
-export default connect(mapStateToProps, { })(Profile)
+export default connect(mapStateToProps, { updateUser })(Profile)
