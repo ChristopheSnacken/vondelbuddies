@@ -64,3 +64,7 @@ input[type="radio"] {
 .submit:active {
   transform: translateY(1px);
 }
+
+.Progress {
+  width: 80%;
+}

@@ -7,6 +7,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 
+
 export default class Level extends PureComponent {
   constructor() {
     super();
@@ -35,8 +36,10 @@ export default class Level extends PureComponent {
 render () {
   return (
     <div >
+
       <ExpansionPanel >
               <ExpansionPanelSummary >
+
                 <Typography >What is your age categorie?</Typography>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
