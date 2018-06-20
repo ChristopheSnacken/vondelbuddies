@@ -48,7 +48,9 @@ class Matches extends React.PureComponent {
   renderMatch = (match) => {
     return (
       <div className="match-container" key={match.id} style={Object.assign({}, styles.slide)}>
-        <div className="match-img">Image</div>
+        <div className="match-img">
+          <img src={require(`../img/foto_${match.img}.png`)} alt="home"/>
+        </div>
         <ul className="match-info">
           <li><b>Name:</b> {match.name}</li>
           <li><b>Age:</b> {match.age}</li>
