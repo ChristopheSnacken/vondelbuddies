@@ -37,7 +37,7 @@ export default class Level extends PureComponent {
 render (){
   return (
 
-      <div className="Gender">
+      <div >
 
           <form onSubmit={this.handleSubmit}>
               <ul>

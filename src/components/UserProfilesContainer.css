@@ -14,22 +14,7 @@ form {
   padding: 20px;
 }
 
-ul {
-  list-style: none;
-  margin: 0 0 20px;
-  padding: 0;
-  align-items: center;
-}
 
-li:not(:last-child) {
-  margin-bottom: 5px;
-  float: Left;
-  padding-left: 20px;
-  padding-right: 20px;
-
-
-
-}
 
 label {
   display: flex;

@@ -29,7 +29,7 @@ export default class Level extends PureComponent {
 
   render () {
     return (
-      <div >
+      <div  >
         <form onSubmit={this.handleSubmit}>
           <TextField
                     id="age"
