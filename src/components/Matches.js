@@ -42,6 +42,8 @@ function Matches(props) {
           })
         }
      </BindKeyboardSwipeableViews>
+
     );
 }
+
 export default Matches;

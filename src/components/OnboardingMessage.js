@@ -8,6 +8,7 @@ export default function OnboardingMessage(props) {
       <h2>Find your sport buddy</h2>
       <label htmlFor="park-selector">Choose your park</label>
       <input className="park-selector" id="park-selector" defaultValue="Vondelpark" />
+
     </div>
   )
 }
