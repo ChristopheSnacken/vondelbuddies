@@ -1,7 +1,9 @@
 import * as React from 'react'
 import OnboardingMessage from './OnboardingMessage'
 import WelcomeBackMessage from './WelcomeBackMessage'
+
 import { Link } from 'react-router-dom'
+
 import { connect } from 'react-redux'
 
 class Welcome extends React.PureComponent {
