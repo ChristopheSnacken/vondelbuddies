@@ -14,6 +14,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -50,6 +51,7 @@ class Profile extends PureComponent {
   render (){
     const { expanded } = this.state;
     return (
+      <div>
       <div>
 
         <h1> What about you? </h1>
@@ -88,12 +90,18 @@ class Profile extends PureComponent {
         </ExpansionPanel>
 
       <br/>
+
+
+      </div>
       <div className="matches">
-        <h1 className="link"><Link to={ `/matches` }>See your matches</Link></h1>
-      </div>
+        <Link to={ `/matches` }>
+          <Button variant="contained">
+            See your matches
+          </Button>
+        </Link>
 
-
       </div>
+    </div>
 
 
     )

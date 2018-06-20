@@ -16,6 +16,7 @@ export default class Level extends PureComponent {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(event) {
   this.setState({
     gender: event.target.value,
@@ -61,6 +62,7 @@ render (){
                       value="Female"
                       name="radio-button-demo"
                       aria-label="B"
+
                     />
                     Female
                   </label>
