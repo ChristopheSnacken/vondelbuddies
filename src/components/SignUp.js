@@ -86,6 +86,7 @@ class SignUpForm extends Component {
             onChange={event => this.setState(byPropKey('username', event.target.value))}
             type="text"
             placeholder="Full Name"
+            label="Full Name"
             className="text-field"
           />
           <TextField
@@ -93,6 +94,7 @@ class SignUpForm extends Component {
             onChange={event => this.setState(byPropKey('email', event.target.value))}
             type="text"
             placeholder="Email Address"
+            label="Email Address"
             className="text-field"
           />
          <TextField
@@ -100,6 +102,7 @@ class SignUpForm extends Component {
             onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
             type="password"
             placeholder="Password"
+            label="Password"
             className="text-field"
           />
          <TextField
@@ -107,6 +110,7 @@ class SignUpForm extends Component {
             onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
             type="password"
             placeholder="Confirm Password"
+            label="Confirm Password"
             className="text-field"
           />
          <button className="btn" disabled={isInvalid} type="submit">

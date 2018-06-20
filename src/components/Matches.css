@@ -11,6 +11,12 @@
 .match-info {
  text-align: left;
  list-style: none;
+ padding: 20px;
+
+}
+
+.match-info li {
+  float: none!important;
 }
 
 .chat-btn {
@@ -21,4 +27,33 @@
 
 .swipe-container {
   height: 100%;
+
 }
+
+.match-control-buttons{
+ position: fixed;
+ bottom: 0px;
+ width: 90%;
+}
+
+.match-control-chat{
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0px;
+  width: 90%;
+  text-decoration: none;
+ }
+
+ .match-control-chat .btn{
+  
+ }
+
+.match-control-accept{
+ float: left;
+}
+
+.match-control-decline{
+  
+  float: right;
+ }

@@ -4,6 +4,8 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   background-color: white!important;
+  height: 100%;
+  
 }
 
 .App {
@@ -34,6 +36,7 @@ header {
   border: none;
   box-shadow: 2px 3px 0 0 #979797;
   margin: 30px 0px;
+  cursor: pointer;
 }
 
 .logo {
@@ -46,13 +49,13 @@ header {
 .home{
  position: absolute;
  left: 10px;
- top: 10px;
+ top: 5px;
 }
 
 .profile{
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 5px;
 }
 
 .text-field{
