@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import '../UserProfilesContainer.css'
+import './level.css'
 import Radio from '@material-ui/core/Radio';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
@@ -17,7 +17,7 @@ export default class Level extends PureComponent {
 
     };
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleChange(event) {
@@ -29,13 +29,6 @@ export default class Level extends PureComponent {
     });
   }
 
-//   handleSubmit(event) {
-//   event.preventDefault();
-//   this.props.updateLevel(this.state.level)
-//
-//
-// }
-
 
 
 
@@ -44,7 +37,7 @@ export default class Level extends PureComponent {
 
     return (
       <div >
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="Profile">
             <ul className="Profile">
               <li>
                 <label>

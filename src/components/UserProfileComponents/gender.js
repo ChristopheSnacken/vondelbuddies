@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import '../UserProfilesContainer.css'
+import './level.css'
 import Radio from '@material-ui/core/Radio';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
@@ -35,7 +35,7 @@ render (){
 
       <div >
 
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} className="Profile">
               <ul>
                 <li>
                   <label>
