@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'
 import '../UserProfilesContainer.css'
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -29,10 +31,18 @@ export default class Level extends PureComponent {
     return (
       <div >
         <form onSubmit={this.handleSubmit}>
-            <label>
-              <input type="text" value={this.state.age} onChange={this.handleChange} />
-            </label>
-            <input className="submit" type="submit" value="Submit" />
+          <TextField
+                    id="age"
+                    label="age"
+                    value={this.state.age}
+                    onChange={this.handleChange}
+                    margin="normal"
+                  />
+
+          <br/>
+          <Button variant="contained" type="submit">
+            Submit
+          </Button>
         </form>
 
       </div>

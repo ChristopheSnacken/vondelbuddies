@@ -1,5 +1,9 @@
 import React, { PureComponent } from 'react'
 import '../UserProfilesContainer.css'
+import Radio from '@material-ui/core/Radio';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
+import Button from '@material-ui/core/Button';
 
 export default class Level extends PureComponent {
   constructor() {
@@ -38,11 +42,12 @@ render (){
               <ul>
                 <li>
                   <label>
-                    <input
-                      type="radio"
-                      value="Male"
+                    <Radio
                       checked={this.state.gender === "Male"}
                       onChange={this.handleChange}
+                      value="Male"
+                      name="radio-button-demo"
+                      aria-label="A"
                     />
                     Male
                   </label>
@@ -50,18 +55,21 @@ render (){
 
                 <li>
                   <label>
-                    <input
-                      type="radio"
-                      value="Female"
+                    <Radio
                       checked={this.state.gender === "Female"}
                       onChange={this.handleChange}
+                      value="Female"
+                      name="radio-button-demo"
+                      aria-label="B"
                     />
                     Female
                   </label>
                 </li>
               </ul>
 
-            <button className="submit" type="submit">Submit</button>
+              <Button variant="contained" type="submit">
+                Submit
+              </Button>
           </form>
 
       </div>

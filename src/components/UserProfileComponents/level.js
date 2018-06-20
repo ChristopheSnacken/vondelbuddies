@@ -1,5 +1,9 @@
 import React, { PureComponent } from 'react'
 import '../UserProfilesContainer.css'
+import Radio from '@material-ui/core/Radio';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -39,11 +43,12 @@ export default class Level extends PureComponent {
             <ul>
               <li>
                 <label>
-                  <input
-                    type="radio"
-                    value = "0"
+                  <Radio
                     checked={this.state.level === "0"}
                     onChange={this.handleChange}
+                    value="0"
+                    name="radio-button-demo"
+                    aria-label="B"
                   />
                   Beginner
                 </label>
@@ -51,11 +56,12 @@ export default class Level extends PureComponent {
 
               <li>
                 <label>
-                  <input
-                    type="radio"
-                    value= "1"
+                  <Radio
                     checked={this.state.level === "1"}
                     onChange={this.handleChange}
+                    value="1"
+                    name="radio-button-demo"
+                    aria-label="A"
                   />
                   Intermediate
                 </label>
@@ -63,17 +69,20 @@ export default class Level extends PureComponent {
 
               <li>
                 <label>
-                  <input
-                    type="radio"
-                    value="2"
+                  <Radio
                     checked={this.state.level === "2"}
                     onChange={this.handleChange}
+                    value="2"
+                    name="radio-button-demo"
+                    aria-label="C"
                   />
                   Advanced
                 </label>
               </li>
             </ul>
-          <button className="submit" type="submit">Submit</button>
+          <Button variant="contained" type="submit">
+            Submit
+          </Button>
         </form>
     </div>
     )
