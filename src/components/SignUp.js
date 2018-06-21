@@ -24,6 +24,7 @@ const byPropKey = (propertyName, value) => () => ({
     [propertyName]: value,
 });
 
+const generateIMG = () => Math.floor(Math.random() * 4)
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -51,11 +52,16 @@ class SignUpForm extends Component {
           id: authUser.user.uid,
           username,
           email,
+          bio:'This is my super cool bio', 
+          img:generateIMG(), 
+          park:'Vondelpark', 
+          phone:'0625273211'
         })
 
          // Create a user in your own accessible Firebase Database too
-        db.doCreateUser(authUser.user.uid, username, email)
-          .then(() => {
+        db.doCreateUser(authUser.user.uid, username, email,'This is my super cool bio',generateIMG(),'Vondelpark','0625273211')
+          .then(() => {  
+
 
             this.setState(() => ({ ...INITIAL_STATE }));
 

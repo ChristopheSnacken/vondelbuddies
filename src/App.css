@@ -30,7 +30,8 @@ header {
 .btn{
   background-color: #65C0BA;
   width: 80%;
-  height: 30px;
+  height: 40px;
+  font-size: 18px;
   color: #fff;
   border: none;
   box-shadow: 2px 3px 0 0 #979797;
@@ -48,13 +49,13 @@ header {
 .home{
  position: absolute;
  left: 10px;
- top: 5px;
+ top: 10px;
 }
 
 .profile{
   position: absolute;
-  right: 10px;
-  top: 5px;
+  right: 20px;
+  top: 10px;
 }
 
 .text-field{

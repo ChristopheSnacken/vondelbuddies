@@ -1,4 +1,4 @@
-import { SET_USER } from '../actions/activeuser'
+import { SET_USER, ACTIVE_USER_UPDATE } from '../actions/activeuser'
 
 const initialState = {
     id: 0,
@@ -20,8 +20,8 @@ const reducer = (state = initialState, action ) => {
     switch(action.type) {
       case SET_USER:
         return action.payload  
-    //   case UPDATE_USER:
-    //     return [...action.payload]
+      case ACTIVE_USER_UPDATE:
+        return action.payload
       default:
         return state
     }
