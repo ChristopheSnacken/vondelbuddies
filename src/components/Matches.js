@@ -17,6 +17,18 @@ class Matches extends React.PureComponent {
   state = {
     index: 0
   }
+  setIndex = () => {
+    const location = this.props.location
+    if(location.query !== undefined) {
+      const userIndex = this.props.matches
+        .findIndex(match => match.id === location.query.index)
+      this.setState({index: userIndex})
+    }
+  }
+
+  componentDidMount() {
+    this.setIndex()
+  }
 
   render() {
     const { index } = this.state
