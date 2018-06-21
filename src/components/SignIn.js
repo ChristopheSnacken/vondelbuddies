@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 const SignInPage = ({ history }) =>
   <div>
     <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
+    <h2 className="sub-title">Find your sport buddy</h2>
     <SignInForm history={history} />
     <SignUpLink />
   </div>
