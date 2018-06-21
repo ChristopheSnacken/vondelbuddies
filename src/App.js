@@ -18,10 +18,10 @@ class App extends Component {
         <Favicon url={require('./img/vondelbuddies_favicon.png')} />
         <header>
           <div className="home">
-            <Link to={'./matches'}><img src={require('./img/search_icon.png')} alt="home"/></Link>
+            <Link to={'/matches'}><img src={require('./img/search_icon.png')} alt="home"/></Link>
           </div>
           <div className="profile">
-            <Link to={'./mymatches'}><img src={require('./img/profile_icon.png')} alt="profile"/></Link>
+            <Link to={'/mymatches'}><img src={require('./img/profile_icon.png')} alt="profile"/></Link>
           </div>
         </header>
         <main>
@@ -31,7 +31,7 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/welcome" component={WelcomeContainer} />
           <Route exact path="/profile" component={UserProfilesContainer} />
-          <Route exact path="/matches" component={MatchesContainer} />
+          <Route path="/matches" component={MatchesContainer} />
           <Route exact path="/interests" component={InterestsContainer} />
         </main>
       </div>
