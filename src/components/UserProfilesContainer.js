@@ -69,6 +69,7 @@ updateactiveUserAge = age => {
     db.updateUser(activeUser.id, newUser)
 }
 
+
 getStepContent = step => {
   switch (step) {
     case 0:

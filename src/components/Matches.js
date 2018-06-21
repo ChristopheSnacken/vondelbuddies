@@ -49,10 +49,10 @@ class Matches extends React.PureComponent {
         break
       case 'reject':
         this.props.reject(id)
-        if(index < (this.props.matches.length -1)) {
-          index ++
+        if(index > this.props.matches.length) {
+          index --
         }  else {
-          index = 0
+          index = this.props.matches.length - 2
         }
         break
       default:
