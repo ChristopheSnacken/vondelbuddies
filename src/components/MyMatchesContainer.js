@@ -28,7 +28,9 @@ class MyMatchesContainer extends React.PureComponent{
   render() {
     const acceptedMatches = this.props.matches.filter(match => match.accepted === true)
     return (
-      <MyMatches activeUser={this.props.activeUser} matches={acceptedMatches}/>
+      <div>
+        <MyMatches activeUser={this.props.activeUser} matches={acceptedMatches}/>
+      </div>
     )
   }
 }

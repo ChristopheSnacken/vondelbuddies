@@ -30,7 +30,8 @@ header {
 .btn{
   background-color: #65C0BA;
   width: 80%;
-  height: 30px;
+  height: 40px;
+  font-size: 18px;
   color: #fff;
   border: none;
   box-shadow: 2px 3px 0 0 #979797;
@@ -67,4 +68,8 @@ form {
   background-color: #fff;
   margin: 20px auto!important;
   padding: 0px!important;
+}
+
+a {
+  text-decoration: none!important;
 }
