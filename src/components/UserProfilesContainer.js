@@ -85,13 +85,13 @@ getStepContent = step => {
     return (
       <div className="profile-stepper">
         <h1 className="headerProfile"> What about you? </h1>
-        <Stepper  activeStep={activeStep} orientation="vertical">
+        <Stepper   activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => {
             return (
               <Step  key={label}>
-                <StepLabel >{label}</StepLabel>
+                <StepLabel  >{label}</StepLabel>
                 <StepContent>
-                  <Typography>{this.getStepContent(index)}</Typography>
+                  <Typography >{this.getStepContent(index)}</Typography>
                   <div >
                     <div>
                       <Button className= "Back"
