@@ -7,7 +7,7 @@ import { setUser } from '../actions/activeuser'
 
 const SignUpPages = ({ history }) =>
   <div>
-     <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
+    <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
     <SignUpForm history={history} />
 </div>
 
@@ -57,10 +57,11 @@ class SignUpForm extends Component {
           park:'Vondelpark', 
           phone:'0625273211'
         })
-        
+
          // Create a user in your own accessible Firebase Database too
         db.doCreateUser(authUser.user.uid, username, email,'This is my super cool bio',generateIMG(),'Vondelpark','0625273211')
           .then(() => {  
+
 
             this.setState(() => ({ ...INITIAL_STATE }));
 
@@ -140,24 +141,8 @@ class SignUpForm extends Component {
   }
 }
 
-
-const SignUpLink = () =>
-  <p><Link to={'/signup'}>Create account</Link> </p>
-
-
 export const SignUpPage = withRouter(SignUpPages);
 
 
 export default connect(
   null, { setUser })(SignUpForm);
-
-export { SignUpLink };
-
-
-  
-  
-  
-
-  
-
- 
