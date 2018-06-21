@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './MyMatches.css'
 import { Link } from 'react-router-dom'
-import SignOut from './SignOut'
+import SignOutButton from './SignOut'
 
 export default function MyMatches(props) {
   const { activeUser, matches } = props
@@ -19,9 +19,8 @@ export default function MyMatches(props) {
       <div className="edit-buttons">
         <Link to={'/profile'}><button className="btn btn-small">Edit your profile</button></Link>
         <Link to={'/interests'}><button className="btn btn-small">Edit your activities</button></Link>
+        <SignOutButton className="btn btn-small"/>
       </div>
-        <SignOut/>
-
     </div>
   )
 }

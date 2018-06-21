@@ -2,13 +2,6 @@ import React, { PureComponent } from 'react'
 import './level.css'
 import Radio from '@material-ui/core/Radio';
 
-//import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
-//import Button from '@material-ui/core/Button';
-
-
-
-
-
 export default class Level extends PureComponent {
   constructor() {
     super();
@@ -29,10 +22,6 @@ export default class Level extends PureComponent {
       this.props.updateLevel(this.state.level);
     });
   }
-
-
-
-
 
   render (){
 
