@@ -1,6 +1,7 @@
 import * as React from 'react'
 import './MyMatches.css'
 import { Link } from 'react-router-dom'
+import SignOut from './SignOut'
 
 export default function MyMatches(props) {
   const { activeUser, matches } = props
@@ -12,7 +13,8 @@ export default function MyMatches(props) {
         <div className="my-matches">
         {matches.length > 0 && matches.map(match => <Link key={match.id} params={{index: 0}} to={{pathname: `/matches`, query: {index: match.id}}}><img className="match-pic" src={require(`./../img/userphotos/uid-${match.img}.png`)} alt={match.name + "s face"} /></Link>)}
         {matches.length === 0 && `You don't have any matches yet.`}
-      </div>
+        </div>
+        <SignOut/>
     </div>
 
   )

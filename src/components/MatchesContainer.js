@@ -1,5 +1,7 @@
 import * as React from 'react'
+import { compose } from 'redux'
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Matches from './Matches'
 import { setMatchesInit, updateMatches } from '../actions/matches'
 import { firebase } from '../firebase';
@@ -19,6 +21,7 @@ class MatchesContainer extends React.PureComponent {
       } 
       else{
         this.setState(() => ({ authUser: null }));
+        this.props.history.push('/login');
       } 
     })
 
@@ -99,4 +102,8 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, { updateMatches,setMatchesInit, setUser })(MatchesContainer);
+
+export default compose(
+  connect(mapStateToProps, { updateMatches,setMatchesInit, setUser }),
+  withRouter
+)(MatchesContainer);

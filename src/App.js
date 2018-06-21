@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route} from 'react-router-dom'
 import './App.css';
 import MatchesContainer from './components/MatchesContainer'
 import WelcomeContainer from './components/WelcomeContainer'
@@ -10,8 +10,6 @@ import Login from './components/SignIn'
 import SignUp from './components/SignUp'
 import Header from './components/header'
 import Favicon from 'react-favicon';
-import Badge from '@material-ui/core/Badge';
-import { connect } from 'react-redux'
 // import SignOutButton from './components/SignOut';
 
 
