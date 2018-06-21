@@ -19,7 +19,6 @@ export default class Level extends PureComponent {
     this.state = {age: ''};
 
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
