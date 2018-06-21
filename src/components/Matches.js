@@ -2,6 +2,7 @@ import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import { bindKeyboard } from 'react-swipeable-views-utils';
 import './Matches.css';
+import whatsapp from '../img/WhatsApp.svg'
 
 
 const BindKeyboardSwipeableViews = bindKeyboard(SwipeableViews);
@@ -69,12 +70,7 @@ class Matches extends React.PureComponent {
       <div className="match-container" key={match.id} style={Object.assign({}, styles.slide)}>
         <div className="match-img">
           <img src={require(`../img/foto_${match.img}.png`)} alt="home"/>
-          {!match.accepted &&
-            <div className="match-control-buttons">
-              <button className="match-control-decline" onClick={()=>this.onClickHandler(match.id, "reject")}><img src={require('../img/decline.png')} alt="reject"/></button>
-              <button className="match-control-accept" onClick={()=>this.onClickHandler(match.id, "accept")}><img src={require('../img/accept.png')} alt="accept"/></button>
-            </div>
-          }
+
         </div>
         <div className="flex-container">
           <h3 className="match-name">{match.name}, {match.age}</h3>
@@ -84,12 +80,18 @@ class Matches extends React.PureComponent {
             <li><b>Sports:</b> {match.sports.join(", ")}</li>
             <li><b>Bio:</b> {match.bio}</li>
 
-
+{/* <button className="btn_WhatsApp"></button> */}
             { match.accepted &&
-              <a className="match-control-chat" href={`https://api.whatsapp.com/send?phone=${match.phone}`}><button className="btn">Send WhatsApp</button></a>
+              <a className="match-control-chat" href={`https://api.whatsapp.com/send?phone=${match.phone}`}> <img className="WhatsApp" src={whatsapp} alt="whatsapp" /></a>
             }
           </ul>
         </div>
+        {!match.accepted &&
+          <div className="match-control-buttons">
+            <button className="match-control-decline" onClick={()=>this.onClickHandler(match.id, "reject")}><img src={require('../img/decline.png')} alt="reject"/></button>
+            <button className="match-control-accept" onClick={()=>this.onClickHandler(match.id, "accept")}><img src={require('../img/accept.png')} alt="accept"/></button>
+          </div>
+        }
       </div>
     )
   }
