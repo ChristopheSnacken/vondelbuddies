@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { SignUpLink } from './SignUp';
+// import { SignUpLink } from './SignUp';
 import { auth } from '../firebase';
 import TextField from '@material-ui/core/TextField';
+import { Link } from 'react-router-dom'
 
 const SignInPage = ({ history }) =>
   <div>
     <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
     <h2 className="sub-title">Find your sport buddy</h2>
     <SignInForm history={history} />
-    <SignUpLink />
+    <p><Link to={'/signup'}>Create account</Link> </p>
   </div>
 
 const byPropKey = (propertyName, value) => () => ({
@@ -85,12 +86,13 @@ class SignInForm extends Component {
         <button className="btn" disabled={isInvalid} type="submit">
           Sign In
         </button>
-
         { error && <p>{error.message}</p> }
       </form>
     );
   }
 }
+
+
 
 export default withRouter(SignInPage);
 
