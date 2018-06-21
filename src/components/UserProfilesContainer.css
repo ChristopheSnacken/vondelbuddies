@@ -1,18 +1,29 @@
-.Next {
+button.Next {
   width: 100%;
   background-color: #7bbeb9!important;
-
+  height: 40px;
+  font-size: 18px;
+  border-radius: 0 0 0 0!important;
+  box-shadow: 2px 3px 0 0 #979797!important;
 }
 .reset {
   width: 80%;
+  height: 40px;
+  font-size: 18px;
 }
 .profileMatches {
   width: 80%;
   background-color: #7bbeb9!important;
   color: white!important;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 0 0 0 0!important;
+  box-shadow: 2px 3px 0 0 #979797!important;
 }
 .Back {
   width: 100%;
+  height: 40px;
+  font-size: 18px;
 }
 
 .headerProfile {
@@ -23,6 +34,7 @@
 .profileRadio {
   color: #7bbeb9 !important;
 }
+
 .MuiStepIcon-root-47  {
   color: #7bbeb9!important;
 }
