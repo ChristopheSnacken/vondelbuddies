@@ -65,6 +65,7 @@ class Matches extends React.PureComponent {
   }
 
   renderMatch = (match) => {
+    match.sports = match.sports || []
     const levels = {0: "Beginner", 1:"Intermediate", 2:"Advanced"}
     return (
       <div className="match-container" key={match.id} style={Object.assign({}, styles.slide)}>
