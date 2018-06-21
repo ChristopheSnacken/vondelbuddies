@@ -22,6 +22,7 @@ class MyMatchesContainer extends React.PureComponent{
         this.props.history.push('/login');
       } 
     })
+
   }
 
 

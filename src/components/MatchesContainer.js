@@ -27,8 +27,6 @@ class MatchesContainer extends React.PureComponent {
 
     this.props.setMatchesInit()
     this.props.updateMatches(this.filterMatches())
-    
-    
   }
 
   filterMatches = () => {
@@ -75,6 +73,8 @@ class MatchesContainer extends React.PureComponent {
     matches[newMatchIndex].accepted = true
     this.props.updateMatches(matches)
     this.filterMatches()
+    // TODO: update current user in users array in firebase with accepted user
+
   }
 
   reject = (id) => {
@@ -84,6 +84,10 @@ class MatchesContainer extends React.PureComponent {
 
     matches[newMatchIndex].rejected = true
     this.props.updateMatches(this.filterMatches(matches))
+     // TODO: update current user in users array in firebase with rejected user
+    let userObj = this.props.activeUser
+    userObj.matches = matches
+
   }
 
   render () {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { auth, db } from '../firebase';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import { setUser } from '../actions/activeuser'
