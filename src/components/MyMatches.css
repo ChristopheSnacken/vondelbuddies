@@ -33,6 +33,7 @@
   align-items: center;
   margin-left: 1em;
 }
+
 .edit-buttons {
   display: inline-flex;
   width: 80%;
@@ -47,4 +48,15 @@
   color: grey;
   box-shadow: none;
   border: 1px solid grey;
+}
+
+@media screen and (max-width: 500px) {
+  .btn-small {
+    width: 100%;
+  }
+
+  .edit-buttons {
+    width: 90%;
+    height: 50px;
+  }
 }
