@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import { setUser } from '../actions/activeuser'
+import { setMatchesInit } from '../actions/matches'
 
 const SignUpPages = ({ history }) =>
   <div>
@@ -47,20 +48,14 @@ class SignUpForm extends Component {
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
 
-         // set user to currentuser in redux state
-        this.props.setUser({
-          id: authUser.user.uid,
-          username,
-          email,
-          bio:'This is my super cool bio', 
-          img:generateIMG(), 
-          park:'Vondelpark', 
-          phone:'0625273211'
-        })
-
-         // Create a user in your own accessible Firebase Database too
+        
         db.doCreateUser(authUser.user.uid, username, email,'This is my super cool bio',generateIMG(),'Vondelpark','0625273211')
           .then(() => {  
+            
+            this.props.setUser(authUser.user.uid)
+            
+            this.props.setMatchesInit()
+            
 
 
             this.setState(() => ({ ...INITIAL_STATE }));
@@ -145,4 +140,13 @@ export const SignUpPage = withRouter(SignUpPages);
 
 
 export default connect(
-  null, { setUser })(SignUpForm);
+
+  null, { setUser,setMatchesInit })(SignUpForm);
+
+export { SignUpLink };
+
+
+  
+  
+  
+
