@@ -71,8 +71,8 @@ class Matches extends React.PureComponent {
           <img src={require(`../img/foto_${match.img}.png`)} alt="home"/>
           {!match.accepted &&
             <div className="match-control-buttons">
-              <button className="match-control-accept" onClick={()=>this.onClickHandler(match.id, "accept")}><img src={require('../img/accept.png')} alt="accept"/></button>
               <button className="match-control-decline" onClick={()=>this.onClickHandler(match.id, "reject")}><img src={require('../img/decline.png')} alt="reject"/></button>
+              <button className="match-control-accept" onClick={()=>this.onClickHandler(match.id, "accept")}><img src={require('../img/accept.png')} alt="accept"/></button>
             </div>
           }
         </div>
