@@ -14,14 +14,16 @@ export const doCreateUser = (id, username, email) =>
 export const onceGetUsers = () =>
   db.ref('users').once('value');
 
-export const updateUser = (id, age, level, gender, sports, bio='This is my super cool bio', img=generateIMG(), parc='Vondelpark', phone='0625273211') =>
+
+export const updateUser = (id, user, key=null, newValue=null, bio='This is my super cool bio', img=generateIMG(), parc='Vondelpark', phone='0625273211') => {
+  // user[key] = newValue;
+  console.log(user);
+  
   db.ref(`users/${id}`).update({
-   age,
-   level,
-   gender,
-   sports,
-   bio,
-   img,
-   parc,
-   phone
-  });
+    ...user,
+    bio,
+    img,
+    parc,
+    phone
+  })
+}
