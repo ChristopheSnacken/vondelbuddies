@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { SignUpLink } from './SignUp';
 import { auth } from '../firebase';
-
+import TextField from '@material-ui/core/TextField';
 
 const SignInPage = ({ history }) =>
   <div>
-    <h1>SignIn</h1>
+    <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
     <SignInForm history={history} />
     <SignUpLink />
   </div>
@@ -41,7 +41,7 @@ class SignInForm extends Component {
     auth.doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState(() => ({ ...INITIAL_STATE }));
-        history.push('/');
+        history.push('/matches');
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
@@ -63,19 +63,25 @@ class SignInForm extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <input
+
+         <TextField
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
           type="text"
           placeholder="Email Address"
+          label="Email Address"
+          className="text-field"
         />
-        <input
+        <br></br>
+        <TextField
           value={password}
           onChange={event => this.setState(byPropKey('password', event.target.value))}
           type="password"
           placeholder="Password"
+          label="Password"
+          className="text-field"
         />
-        <button disabled={isInvalid} type="submit">
+        <button className="btn" disabled={isInvalid} type="submit">
           Sign In
         </button>
 

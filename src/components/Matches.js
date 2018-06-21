@@ -9,41 +9,77 @@ const BindKeyboardSwipeableViews = bindKeyboard(SwipeableViews);
 const styles = {
   slide: {
     padding: 0,
-    minHeight: 100,
+    height: '90vh',
   },
 };
 
-function Matches(props) {
-  return (
-    <BindKeyboardSwipeableViews enableMouseEvents>
-        {
-          props.matches.map((match) => {
-              return(
-                <div className="match-container" key={match.id} style={Object.assign({}, styles.slide)}>
-                  <div className="match-img">Image</div>
-                  <ul className="match-info">
-                  //Refactor so that the prop names don't need to be hardcoded
-                    <li><b>Name:</b> {match.name}</li>
-                    <li><b>Age:</b> {match.age}</li>
-                    <li><b>Level:</b> {match.level}</li>
-                    <li><b>Park: </b>{match.park}</li>
-                    <li><b>Bio:</b> {match.bio}</li>
-                    <li><b>Activity:</b></li>
-                  </ul>
-                  {!match.accepted &&
-                    <div className="match-control-buttons">
-                      <button onClick={()=>props.accept(match.id)}>Accept</button>
-                      <button onClick={()=>props.reject(match.id)}>Reject</button>
-                    </div>
-                  }
-                  {match.accepted && <button className="btn chat-btn " href={`https://api.whatsapp.com/send?phone=${match.phone}`}>Send WhatsApp</button>}
-                </div>
-              )
-          })
-        }
-     </BindKeyboardSwipeableViews>
+class Matches extends React.PureComponent {
+  state = {
+    index: 0
+  }
 
-    );
+  render() {
+    const { index } = this.state
+    if(this.props.matches.length === 0) {
+      return <h1 className="matches-emtpy-state">No more VondelBuddies found, why not come back later?</h1>
+    }
+    return (
+      <BindKeyboardSwipeableViews enableMouseEvents index={index} onSwitching={(index) => this.setState({index: index})}>
+        {this.props.matches.map(this.renderMatch)}
+      </BindKeyboardSwipeableViews>
+    )
+  }
+  onClickHandler = (id, action) => {
+    let index = this.state.index
+    switch(action) {
+      case 'accept':
+        this.props.accept(id)
+        break
+      case 'reject':
+        this.props.reject(id)
+        if(index < (this.props.matches.length -1)) {
+          index ++
+        }  else {
+          index = 0
+        }
+        break
+      default:
+        break
+    }
+    this.setState({
+      index: index
+    })
+  }
+
+  renderMatch = (match) => {
+    const levels = {0: "Beginner", 1:"Intermediate", 2:"Advanced"}
+    return (
+      <div className="match-container" key={match.id} style={Object.assign({}, styles.slide)}>
+        <div className="match-img">
+          <img src={require(`../img/foto_${match.img}.png`)} alt="home"/>
+        </div>
+        <div className="flex-container">
+          <h3 className="match-name">{match.name}, {match.age}</h3>
+          <ul className="match-info">
+            <li><b>Fitness Level:</b> {levels[match.level]}</li>
+            <li><b>Park: </b>{match.park}</li>
+            <li><b>Sports:</b> {match.sports.join(", ")}</li>
+            <li><b>Bio:</b> {match.bio}</li>
+            {!match.accepted &&
+              <div className="match-control-buttons">
+                <button className="match-control-accept" onClick={()=>this.onClickHandler(match.id, "accept")}><img src={require('../img/accept.png')} alt="accept"/></button>
+                <button className="match-control-decline" onClick={()=>this.onClickHandler(match.id, "reject")}><img src={require('../img/decline.png')} alt="reject"/></button>
+              </div>
+            }
+
+            { match.accepted &&
+              <a className="match-control-chat" href={`https://api.whatsapp.com/send?phone=${match.phone}`}><button className="btn">Send WhatsApp</button></a>
+            }
+          </ul>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Matches;

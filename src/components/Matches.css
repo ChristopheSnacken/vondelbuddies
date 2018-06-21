@@ -1,25 +1,79 @@
-.match-container {
-
-
+.flex-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+.matches-emtpy-state {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2em;
+  color: #216583;
 }
 
 .match-img{
-    background-color: #d8d8d8;
-    height: 200px;
+  height: fit-content;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.match-img img{
+ padding: 0px;
+ margin: 0px;
+ width: 100%;
 }
 
 .match-info {
- text-align: left;
- list-style: none;
+  text-align: left;
+  list-style: none;
+  padding: 0px 0 0 20px;
+  margin-top: 0;
+}
+
+.match-name {
+  font-weight: bolder;
+  margin: .2em auto;
+  color: #1d1d1d;
+}
+.match-info li {
+  float: none!important;
+  margin: 8px 0px;
 }
 
 .chat-btn {
   text-decoration: none;
   border-radius: 0;
   margin: auto;
-  box-shadow: 2px 3px 0 0 #979797;
 }
 
 .swipe-container {
   height: 100%;
 }
+
+.match-control-buttons{
+  position: absolute;
+  bottom: 0px;
+  width: 80%;
+}
+
+.match-control-chat{
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0px;
+  width: 90%;
+  text-decoration: none;
+ }
+
+.match-control-accept{
+ float: left;
+ background-color: transparent;
+ height: fit-content;
+ border: none;
+}
+
+.match-control-decline{
+  float: right;
+  background-color: transparent;
+  height: fit-content;
+  border: none;
+ }

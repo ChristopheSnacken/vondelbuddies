@@ -18,7 +18,7 @@ class MatchesContainer extends React.PureComponent {
         this.filterMatchesByPark(match, activeUser) &&
         !match.rejected
       )
-    })
+    }).sort()
   }
 
   filterMatchesBySports = (match, activeUser) => {
