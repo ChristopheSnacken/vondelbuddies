@@ -64,6 +64,8 @@ updateactiveUserAge = age => {
     newUser.age = parseInt(age, 10)
     this.props.updateUser(newUser)
 }
+
+
 getStepContent = step => {
   switch (step) {
     case 0:

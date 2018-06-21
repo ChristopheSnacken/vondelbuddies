@@ -23,13 +23,13 @@
 .profileRadio {
   color: #7bbeb9 !important;
 }
-.MuiStepIcon-root-47  {
+/* .MuiStepIcon-root-47  {
   color: #7bbeb9!important;
 }
 .MuiStepIcon-completed-49 {
   color: #7bbeb9!important;
-}
+} */
 
-.profile-stepper circle{
+.profile-stepper svg{
   color: #7bbeb9!important;
 }
