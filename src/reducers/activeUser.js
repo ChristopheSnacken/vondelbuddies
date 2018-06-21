@@ -1,3 +1,5 @@
+import { SET_USER } from '../actions/activeuser'
+
 const initialState = {
     id: 0,
     name: 'Henk de Vries',
@@ -11,7 +13,18 @@ const initialState = {
     interest: ""
 }
 
-export default (state = initialState, action = {}) => {
-    return state
-    action.payload
-}
+
+
+const reducer = (state = initialState, action ) => {
+    console.log('reducer');
+    switch(action.type) {
+      case SET_USER:
+        return action.payload  
+    //   case UPDATE_USER:
+    //     return [...action.payload]
+      default:
+        return state
+    }
+  }
+  export default reducer
+  
