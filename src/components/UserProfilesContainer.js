@@ -8,7 +8,7 @@ import "react-sweet-progress/lib/style.css";
 import { updateUser } from '../actions/activeuser'
 import { Link } from 'react-router-dom'
 
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';

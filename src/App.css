@@ -48,13 +48,13 @@ header {
 .home{
  position: absolute;
  left: 10px;
- top: 5px;
+ top: 10px;
 }
 
 .profile{
   position: absolute;
-  right: 10px;
-  top: 5px;
+  right: 20px;
+  top: 10px;
 }
 
 .text-field{

@@ -8,21 +8,33 @@ import MyMatchesContainer from './components/MyMatchesContainer'
 import InterestsContainer from './components/InterestsContainer'
 import Login from './components/SignIn'
 import SignUp from './components/SignUp'
+import Header from './components/header'
 import Favicon from 'react-favicon';
+import Badge from '@material-ui/core/Badge';
+import { connect } from 'react-redux'
 // import SignOutButton from './components/SignOut';
 
+
 class App extends Component {
+
+
+
   render() {
+
     return (
       <div className="App">
         <Favicon url={require('./img/vondelbuddies_favicon.png')} />
         <header>
-          <div className="home">
+          <Header />
+          {/* <div className="home">
             <Link to={'/matches'}><img src={require('./img/search_icon.png')} alt="home"/></Link>
           </div>
           <div className="profile">
-            <Link to={'/mymatches'}><img src={require('./img/profile_icon.png')} alt="profile"/></Link>
-          </div>
+            <Badge matches={acceptedMatches} badgeContent={acceptedMatches.length} color="primary">
+              <Link to={'/mymatches'}><img src={require('./img/profile_icon.png')} alt="profile"/></Link>
+            </Badge>
+
+          </div> */}
         </header>
         <main>
           <Route exact path="/" component={Login} />
