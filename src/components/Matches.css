@@ -30,8 +30,9 @@
 }
 
 .match-name {
+  font-weight: bolder;
   margin: .2em auto;
-  color: #216583;
+  color: #1d1d1d;
 }
 .match-info li {
   float: none!important;
