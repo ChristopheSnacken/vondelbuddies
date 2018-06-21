@@ -8,12 +8,14 @@ import MyMatchesContainer from './components/MyMatchesContainer'
 import InterestsContainer from './components/InterestsContainer'
 import Login from './components/SignIn'
 import SignUp from './components/SignUp'
+import Favicon from 'react-favicon';
 // import SignOutButton from './components/SignOut';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Favicon url={require('./img/vondelbuddies_logo.png')} />
         <header>
           <div className="home">
             <Link to={'./matches'}><img src={require('./img/search_icon.png')} alt="home"/></Link>
