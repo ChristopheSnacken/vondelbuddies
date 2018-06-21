@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-// import { SignUpLink } from './SignUp';
 import { auth } from '../firebase';
 import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom'

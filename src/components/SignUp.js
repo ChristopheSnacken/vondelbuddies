@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import { setUser } from '../actions/activeuser'
-import { setMatchesInit } from '../actions/matches'
+//import { setMatchesInit } from '../actions/matches'
 
 const SignUpPages = ({ history }) =>
   <div>
@@ -48,14 +48,14 @@ class SignUpForm extends Component {
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
 
-        
+
         db.doCreateUser(authUser.user.uid, username, email,'This is my super cool bio',generateIMG(),'Vondelpark','0625273211')
-          .then(() => {  
-            
+          .then(() => {
+
             this.props.setUser(authUser.user.uid)
-            
-            this.props.setMatchesInit()
-            
+
+            //this.props.setMatchesInit()
+
 
 
             this.setState(() => ({ ...INITIAL_STATE }));
@@ -139,14 +139,4 @@ class SignUpForm extends Component {
 export const SignUpPage = withRouter(SignUpPages);
 
 
-export default connect(
-
-  null, { setUser,setMatchesInit })(SignUpForm);
-
-export { SignUpLink };
-
-
-  
-  
-  
-
+export default connect(null, { setUser })(SignUpForm);
