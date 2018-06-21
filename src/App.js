@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Favicon url={require('./img/vondelbuddies_logo.png')} />
+        <Favicon url={require('./img/vondelbuddies_favicon.png')} />
         <header>
           <div className="home">
             <Link to={'./matches'}><img src={require('./img/search_icon.png')} alt="home"/></Link>
