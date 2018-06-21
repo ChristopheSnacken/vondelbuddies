@@ -42,6 +42,7 @@ class Matches extends React.PureComponent {
       </BindKeyboardSwipeableViews>
     )
   }
+  
   onClickHandler = (id, action) => {
     let index = this.state.index
     switch(action) {
