@@ -7,17 +7,17 @@ import  Interest  from './Interests'
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import { db } from '../firebase';
 import './Interests.css';
 
 class InterestContainer extends PureComponent {
   updateactiveUserInterest = sports => {
       const {activeUser} = this.props
       const newUser = activeUser
-      newUser.sports = sports
+      newUser.sports = sports      
       this.props.updateUser(newUser)
+      db.updateUser(activeUser.id, newUser)
   }
-
-
 
 render () {
   return (
@@ -33,7 +33,6 @@ render () {
       </Typography>
     </Paper>
   </div>
-
   )
 }
 
@@ -42,7 +41,6 @@ render () {
 const mapStateToProps = state => {
   return {
     activeUser: state.activeUser
-
   }
 }
 
