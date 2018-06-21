@@ -1,11 +1,31 @@
 import * as React from 'react'
 import { connect } from 'react-redux';
 import Matches from './Matches'
-import { updateMatches } from '../actions/matches'
+import { setMatchesInit, updateMatches } from '../actions/matches'
+import { firebase } from '../firebase';
+import { setUser } from '../actions/activeuser'
 
 class MatchesContainer extends React.PureComponent {
+
+  state = {
+    authUser: null,
+  };
+
   componentDidMount() {
+    firebase.auth.onAuthStateChanged(authUser => {
+      if(authUser){
+        this.setState(() => ({ authUser }))
+        this.props.setUser(authUser.uid)
+      } 
+      else{
+        this.setState(() => ({ authUser: null }));
+      } 
+    })
+
+    this.props.setMatchesInit()
     this.props.updateMatches(this.filterMatches())
+    
+    
   }
 
   filterMatches = () => {
@@ -66,7 +86,7 @@ class MatchesContainer extends React.PureComponent {
   render () {
     console.log(this.props);
       return (
-        <Matches location={this.props.location} matches={this.props.matches} accept={this.accept} reject={this.reject}/>
+        <Matches location={this.props.location} matches={this.props.matches} accept={this.accept} reject={this.reject}/> 
       )
   }
 }
@@ -79,4 +99,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, { updateMatches })(MatchesContainer);
+export default connect(mapStateToProps, { updateMatches,setMatchesInit, setUser })(MatchesContainer);
