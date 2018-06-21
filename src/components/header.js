@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import Badge from '@material-ui/core/Badge';
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
+import './header.css'
 
 class Header extends PureComponent {
 
@@ -13,7 +14,7 @@ class Header extends PureComponent {
           <Link to={'/matches'}><img src={require('../img/search_icon.png')} alt="home"/></Link>
         </div>
         <div className="profile">
-          <Badge matches={acceptedMatches} badgeContent={acceptedMatches.length} color="primary">
+          <Badge className= "badge" matches={acceptedMatches} badgeContent={acceptedMatches.length} color="secondary">
             <Link to={'/mymatches'}><img src={require('../img/profile_icon.png')} alt="profile"/></Link>
           </Badge>
 
