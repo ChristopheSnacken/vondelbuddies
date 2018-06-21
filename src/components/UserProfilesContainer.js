@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import "react-sweet-progress/lib/style.css";
 import { updateUser } from '../actions/activeuser'
 import { Link } from 'react-router-dom'
+import { db } from '../firebase';
 
 // import { withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -51,19 +52,23 @@ updateactiveUserLevel = level => {
     const newUser = activeUser
     newUser.level = parseInt(level, 10)
     this.props.updateUser(newUser)
+    db.updateUser(activeUser.id, newUser)
 }
 updateactiveUserGender = gender => {
     const {activeUser} = this.props
     const newUser = activeUser
     newUser.gender = gender
     this.props.updateUser(newUser)
+    db.updateUser(activeUser.id, newUser)
 }
 updateactiveUserAge = age => {
     const {activeUser} = this.props
     const newUser = activeUser
     newUser.age = parseInt(age, 10)
     this.props.updateUser(newUser)
+    db.updateUser(activeUser.id, newUser)
 }
+
 getStepContent = step => {
   switch (step) {
     case 0:
