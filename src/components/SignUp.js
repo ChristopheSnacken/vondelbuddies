@@ -143,7 +143,7 @@ export default connect(
 
   null, { setUser,setMatchesInit })(SignUpForm);
 
-export { SignUpLink };
+
 
 
   
