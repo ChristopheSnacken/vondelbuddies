@@ -31,11 +31,9 @@
 
 .match-name {
   font-weight: bolder;
-  /* margin: .2em auto; */
   color: #1d1d1d;
   text-align: left;
   margin: 8px 20px;
-  /* max-width: 90vw; */
 }
 .match-info li {
   float: none!important;
@@ -53,9 +51,6 @@
 }
 
 .match-control-buttons{
-  /* position: absolute;
-  bottom: 0px;
-  width: 80%; */
   display: flex;
   justify-content: space-around;
 }
@@ -63,8 +58,8 @@
 .match-control-chat{
   display: flex;
   justify-content: center;
-  position: fixed;
-  bottom: 0px;
+  /* position: fixed;
+  bottom: 0px; */
   width: 90%;
   text-decoration: none;
  }
@@ -82,3 +77,20 @@
   height: fit-content;
   border: none;
  }
+
+ .btn_WhatsApp {
+   background-color: transparant!important;
+   width: 100px;
+   height: 50px;
+
+ }
+ .WhatsApp {
+  height: 40px;
+  animation: WhatsApp-spin infinite 1s linear;
+  animation-direction: alternate;
+
+ }
+ @keyframes WhatsApp-spin {
+  from { transform: rotate(-10deg); }
+  to { transform: rotate(40deg); }
+}

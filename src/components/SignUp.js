@@ -8,7 +8,7 @@ import { setMatchesInit } from '../actions/matches'
 
 const SignUpPages = ({ history }) =>
   <div>
-     <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
+    <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
     <SignUpForm history={history} />
 </div>
 
@@ -47,6 +47,7 @@ class SignUpForm extends Component {
 
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
+
         
         db.doCreateUser(authUser.user.uid, username, email,'This is my super cool bio',generateIMG(),'Vondelpark','0625273211')
           .then(() => {  
@@ -55,6 +56,8 @@ class SignUpForm extends Component {
             
             this.props.setMatchesInit()
             
+
+
             this.setState(() => ({ ...INITIAL_STATE }));
 
             history.push('/welcome');
@@ -133,24 +136,17 @@ class SignUpForm extends Component {
   }
 }
 
-
-const SignUpLink = () =>
-  <p><Link to={'/signup'}>Create account</Link> </p>
-
-
 export const SignUpPage = withRouter(SignUpPages);
 
 
 export default connect(
+
   null, { setUser,setMatchesInit })(SignUpForm);
 
-export { SignUpLink };
 
 
+
   
   
   
 
-  
-
- 

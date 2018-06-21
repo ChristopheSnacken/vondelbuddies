@@ -1,5 +1,7 @@
 import * as React from 'react'
+import { compose } from 'redux'
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Matches from './Matches'
 import { setMatchesInit, updateMatches, setMatches } from '../actions/matches'
 import { firebase } from '../firebase';
@@ -100,4 +102,5 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, { updateMatches,setMatchesInit, setUser, setMatches })(MatchesContainer);
+export default connect(mapStateToProps, { updateMatches, setUser, setMatches })(MatchesContainer);
+
