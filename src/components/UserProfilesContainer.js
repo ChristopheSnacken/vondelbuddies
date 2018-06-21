@@ -8,7 +8,7 @@ import "react-sweet-progress/lib/style.css";
 import { updateUser } from '../actions/activeuser'
 import { Link } from 'react-router-dom'
 
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -49,7 +49,7 @@ class Profile extends PureComponent {
 updateactiveUserLevel = level => {
     const {activeUser} = this.props
     const newUser = activeUser
-    newUser.level = parseInt(level)
+    newUser.level = parseInt(level, 10)
     this.props.updateUser(newUser)
 }
 updateactiveUserGender = gender => {
@@ -61,7 +61,7 @@ updateactiveUserGender = gender => {
 updateactiveUserAge = age => {
     const {activeUser} = this.props
     const newUser = activeUser
-    newUser.age = parseInt(age)
+    newUser.age = parseInt(age, 10)
     this.props.updateUser(newUser)
 }
 getStepContent = step => {
