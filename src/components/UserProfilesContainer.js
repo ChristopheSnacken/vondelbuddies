@@ -17,7 +17,6 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-
 function getSteps() {
   return ['What is your fitness level?', 'What is your gender', 'What is your age?'];
 }
@@ -47,7 +46,7 @@ class Profile extends PureComponent {
     });
   };
 
-  updateactiveUserLevel = level => {
+updateactiveUserLevel = level => {
     const {activeUser} = this.props
     const newUser = activeUser
     newUser.level = parseInt(level)
@@ -84,18 +83,18 @@ getStepContent = step => {
     const { activeStep } = this.state;
 
     return (
-      <div>
-        <h1> What about you? </h1>
-        <Stepper activeStep={activeStep} orientation="vertical">
+      <div className="profile-stepper">
+        <h1 className="headerProfile"> What about you? </h1>
+        <Stepper  activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => {
             return (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
+              <Step  key={label}>
+                <StepLabel >{label}</StepLabel>
                 <StepContent>
                   <Typography>{this.getStepContent(index)}</Typography>
                   <div >
                     <div>
-                      <Button
+                      <Button className= "Back"
                         disabled={activeStep === 0}
                         onClick={this.handleBack}
 
@@ -103,6 +102,7 @@ getStepContent = step => {
                         Back
                       </Button>
                       <Button
+                        className ="Next"
                         variant="contained"
                         color="primary"
                         onClick={this.handleNext}
@@ -121,12 +121,12 @@ getStepContent = step => {
           <Paper square elevation={0} >
             <Typography>
               <Link to={ `/matches` }>
-                        <Button variant="contained">
+                        <Button className ="profileMatches" variant="contained">
                           See your matches
                         </Button>
                       </Link>
             </Typography>
-            <Button onClick={this.handleReset} >
+            <Button className= "reset" onClick={this.handleReset} >
               Reset
             </Button>
           </Paper>

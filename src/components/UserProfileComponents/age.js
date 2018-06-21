@@ -19,7 +19,6 @@ export default class Level extends PureComponent {
     this.state = {age: ''};
 
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -36,13 +35,16 @@ export default class Level extends PureComponent {
 
   render () {
 
-    // const N = 99;
-    // const ageArray = Array.apply(null, {length: N}).map(Number.call, Number)
+    const N = 99;
+    const ageArray = Array.apply(null, {length: N}).map(Number.call, Number)
+    console.log (ageArray)
+
 
 
     return (
 
       <div  >
+
         <form onSubmit={this.handleSubmit}>
 
           <FormControl  onSubmit={this.handleSubmit}>
@@ -58,14 +60,7 @@ export default class Level extends PureComponent {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-
-            <MenuItem value={20}>20</MenuItem>
-            <MenuItem value={25}>25</MenuItem>
-            <MenuItem value={30}>30</MenuItem>
-            <MenuItem value={35}>35</MenuItem>
-            <MenuItem value={40}>40</MenuItem>
-            <MenuItem value={45}>45</MenuItem>
-            <MenuItem value={50}>50</MenuItem>
+            {ageArray.map( number => <MenuItem value={number}>{number}</MenuItem>)}
 
           </Select>
         </FormControl>

@@ -36,12 +36,14 @@ export default class Level extends PureComponent {
   render (){
 
     return (
-      <div >
-        <form onSubmit={this.handleSubmit} className="Profile">
-            <ul className="Profile">
+      <div>
+        <form onSubmit={this.handleSubmit} >
+          <div className="Profile">
+            <ul >
               <li>
                 <label>
                   <Radio
+                    className="profileRadio"
                     checked={this.state.level === "0"}
                     onChange={this.handleChange}
                     value="0"
@@ -55,6 +57,7 @@ export default class Level extends PureComponent {
               <li>
                 <label>
                   <Radio
+                    className="profileRadio"
                     checked={this.state.level === "1"}
                     onChange={this.handleChange}
                     value="1"
@@ -68,6 +71,7 @@ export default class Level extends PureComponent {
               <li>
                 <label>
                   <Radio
+                    className="profileRadio"
                     checked={this.state.level === "2"}
                     onChange={this.handleChange}
                     value="2"
@@ -78,9 +82,7 @@ export default class Level extends PureComponent {
                 </label>
               </li>
             </ul>
-          {/* <Button variant="contained" type="submit">
-            Submit
-          </Button> */}
+          </div>
         </form>
     </div>
     )

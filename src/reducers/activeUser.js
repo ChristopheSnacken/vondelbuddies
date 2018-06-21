@@ -7,7 +7,8 @@ const initialState = {
     park: 'Vondelpark',
     sports: ['Running',],
     new: true,
-    bio: ""
+    bio: "",
+    interest: ""
 }
 
 export default (state = initialState, action = {}) => {

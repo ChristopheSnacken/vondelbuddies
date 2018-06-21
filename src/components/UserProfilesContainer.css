@@ -1,52 +1,34 @@
-/* @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+.Next {
+  width: 100%;
+  background-color: #7bbeb9!important;
 
-
-.MuiTypography-root-40 {
+}
+.reset {
+  width: 80%;
+}
+.profileMatches {
+  width: 80%;
+  background-color: #7bbeb9!important;
+  color: white!important;
+}
+.Back {
   width: 100%;
 }
-form {
-  max-width: 800px;
-  background-color: #fff;
-  margin: 0 auto;
-  padding: 20px;
+
+.headerProfile {
+  color: #346480;
 }
 
-
-
-label {
-  display: flex;
-  align-items: center;
+.profileRadio {
+  color: #7bbeb9 !important;
+}
+.MuiStepIcon-root-47  {
+  color: #7bbeb9!important;
+}
+.MuiStepIcon-completed-49 {
+  color: #7bbeb9!important;
 }
 
-input[type="radio"] {
-  margin: 0 20px 0 0;
+.profile-stepper circle{
+  color: #7bbeb9!important;
 }
-
-.title {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.submit {
-  border: 0;
-  font-family: inherit;
-  font-size: inherit;
-  outline: none;
-  cursor: pointer;
-  background-color: #7E57C2;
-  color: #fff;
-  padding: 10px 30px;
-  border-radius: 5px;
-}
-
-.submit:hover {
-  background-color: #673AB7;
-}
-
-.submit:active {
-  transform: translateY(1px);
-}
-
-.Progress {
-  width: 80%;
-} */

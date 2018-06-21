@@ -4,7 +4,7 @@ body {
   font-size: 16px;
   background-color: white!important;
   height: 100%;
-  
+
 }
 
 .App {
@@ -22,7 +22,7 @@ main {
 
 header {
   background-color: #216583;
-  min-height: 40px; 
+  min-height: 40px;
   z-index: 10;
   top:0px;
 }
@@ -66,5 +66,5 @@ form {
   max-width: 800px;
   background-color: #fff;
   margin: 20px auto!important;
-  padding: 0px!important; 
+  padding: 0px!important;
 }
