@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+// import ListItem from '@material-ui/core/ListItem';
+// import ListItemText from '@material-ui/core/ListItemText';
 
 import Button from '@material-ui/core/Button';
 import './Interests.css';
@@ -37,8 +37,9 @@ export default class Interest extends PureComponent {
     return (
 
       <div  >
-
-          <h1 className= "headerInterest"> What activities are you looking for?</h1>
+          <div className= "headerContainer">
+            <h1 className= "headerInterest"> What activities are you looking for?</h1>
+          </div>
 
           <List component="nav">
             <Button className= "sport"  disabled = {this.state.sports.includes("Running")} variant="contained" type="submit" value= "Running" onClick={this.handleChange}>

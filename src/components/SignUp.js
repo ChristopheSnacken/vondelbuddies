@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { auth, db } from '../firebase';
 import { Link, withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
+import { connect } from 'react-redux';
+import { setUser } from '../actions/activeuser'
 
-const SignUpPage = ({ history }) =>
+const SignUpPages = ({ history }) =>
   <div>
-     <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
+    <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
     <SignUpForm history={history} />
 </div>
 
@@ -44,11 +46,21 @@ class SignUpForm extends Component {
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
 
+         // set user to currentuser in redux state
+        this.props.setUser({
+          id: authUser.user.uid,
+          username,
+          email,
+        })
+
          // Create a user in your own accessible Firebase Database too
         db.doCreateUser(authUser.user.uid, username, email)
           .then(() => {
+
             this.setState(() => ({ ...INITIAL_STATE }));
+
             history.push('/welcome');
+
           })
           .catch(error => {
             this.setState(byPropKey('error', error));
@@ -123,14 +135,8 @@ class SignUpForm extends Component {
   }
 }
 
-const SignUpLink = () =>
-  <p><Link to={'/signup'}>Create account</Link> </p>
+export const SignUpPage = withRouter(SignUpPages);
 
 
-
-export default withRouter(SignUpPage);
-
-export {
-    SignUpForm,
-    SignUpLink,
-  };
+export default connect(
+  null, { setUser })(SignUpForm);

@@ -66,7 +66,7 @@ class MatchesContainer extends React.PureComponent {
   render () {
     console.log(this.props);
       return (
-        <Matches matches={this.props.matches} accept={this.accept} reject={this.reject}/>
+        <Matches location={this.props.location} matches={this.props.matches} accept={this.accept} reject={this.reject}/>
       )
   }
 }
