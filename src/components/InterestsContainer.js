@@ -25,9 +25,9 @@ render () {
     <Interest updateInterest= {this.updateactiveUserInterest} />
     <Paper square elevation={0} >
       <Typography>
-        <Link to={ `/matches` }>
+        <Link to={ `/profile` }>
                   <Button className="headerButton" variant="contained">
-                    See your matches
+                    Next
                   </Button>
                 </Link>
       </Typography>

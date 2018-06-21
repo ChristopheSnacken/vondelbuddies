@@ -1,6 +1,7 @@
 import React from 'react'
 import './Welcome.css'
 import { Link } from 'react-router-dom'
+import './OnboardingMessage.css'
 
 export default function OnboardingMessage(props) {
   return (
@@ -9,7 +10,7 @@ export default function OnboardingMessage(props) {
       <h2 className="sub-title">Find your sport buddy</h2>
       <label htmlFor="park-selector">Choose your park</label>
       <input className="park-selector" id="park-selector" defaultValue="Vondelpark" />
-      <Link to={'./profile'}><button className="btn">Let's begin</button></Link>
+      <Link to={'./interests'}><button className="btn">Let's begin</button></Link>
     </div>
   )
 }
