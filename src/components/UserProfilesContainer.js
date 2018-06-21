@@ -83,7 +83,7 @@ getStepContent = step => {
     const { activeStep } = this.state;
 
     return (
-      <div>
+      <div className="profile-stepper">
         <h1 className="headerProfile"> What about you? </h1>
         <Stepper  activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => {
