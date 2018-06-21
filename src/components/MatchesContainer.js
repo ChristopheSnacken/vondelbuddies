@@ -1,11 +1,34 @@
 import * as React from 'react'
+import { compose } from 'redux'
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Matches from './Matches'
-import { updateMatches } from '../actions/matches'
+import { setMatchesInit, updateMatches, setMatches } from '../actions/matches'
+import { firebase } from '../firebase';
+import { setUser } from '../actions/activeuser'
+import { db } from '../firebase';
 
 class MatchesContainer extends React.PureComponent {
+
+  state = {
+    authUser: null,
+  };
+
   componentDidMount() {
-    this.props.updateMatches(this.filterMatches())
+    firebase.auth.onAuthStateChanged(authUser => {
+      if(authUser){
+        this.setState(() => ({ authUser }))
+        this.props.setUser(authUser.uid)
+      } else {
+        this.setState(() => ({ authUser: null }));
+      }
+    })
+
+    db.onceGetUsers()
+      .then(snapshot => {
+        this.props.setMatches(Object.values(snapshot.val()))
+        this.props.updateMatches(this.filterMatches())
+      })
   }
 
   filterMatches = () => {
@@ -79,4 +102,5 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, { updateMatches })(MatchesContainer);
+export default connect(mapStateToProps, { updateMatches, setUser, setMatches })(MatchesContainer);
+
