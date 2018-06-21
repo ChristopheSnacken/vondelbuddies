@@ -69,7 +69,6 @@ updateactiveUserAge = age => {
     db.updateUser(activeUser.id, newUser)
 }
 
-
 getStepContent = step => {
   switch (step) {
     case 0:
@@ -94,10 +93,10 @@ getStepContent = step => {
         <Stepper   activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => {
             return (
-              <Step  key={label}>
-                <StepLabel  >{label}</StepLabel>
+              <Step key={label}>
+                <StepLabel ><h2>{label}</h2></StepLabel>
                 <StepContent>
-                  <Typography >{this.getStepContent(index)}</Typography>
+                  <div className="step-profiles" >{this.getStepContent(index)}</div >
                   <div >
                     <div>
                       <Button className= "Back"
@@ -126,11 +125,11 @@ getStepContent = step => {
         {activeStep === steps.length && (
           <Paper square elevation={0} >
             <Typography>
-              <Link to={ `/matches` }>
-                        <Button className ="profileMatches" variant="contained">
-                          See your matches
-                        </Button>
-                      </Link>
+              <Link className="submit" to={ `/matches` }>
+                <Button className ="profileMatches" variant="contained">
+                  See your matches
+                </Button>
+              </Link>
             </Typography>
             <Button className= "reset" onClick={this.handleReset} >
               Reset
