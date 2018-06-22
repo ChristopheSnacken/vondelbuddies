@@ -87,11 +87,13 @@
 
  }
  .WhatsApp {
+
   height: 40px;
   animation: WhatsApp-spin infinite 1s linear;
   animation-direction: alternate;
 
  }
+
  @keyframes WhatsApp-spin {
   from { transform: rotate(-10deg); }
   to { transform: rotate(40deg); }
