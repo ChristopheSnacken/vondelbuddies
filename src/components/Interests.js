@@ -1,8 +1,5 @@
 import React, { PureComponent } from 'react'
 import List from '@material-ui/core/List';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemText from '@material-ui/core/ListItemText';
-
 import Button from '@material-ui/core/Button';
 import './Interests.css';
 
@@ -25,15 +22,16 @@ export default class Interest extends PureComponent {
 
 }
 
-  handleChange(sport) {
-    console.log(sport);
+
+handleChange(sport) {
+  
+  this.setState({ sports: [...this.state.sports, sport] }
+  ,()=>{
     
-    this.setState({ sports: [...this.state.sports, sport] }
-    ,()=>{
-      
-    this.props.updateInterest(this.state.sports);
-  });
+  this.props.updateInterest(this.state.sports);
+});
 }
+
   handleReset () {
     this.setState({ sports: [] }
     ,()=>{
@@ -62,6 +60,7 @@ export default class Interest extends PureComponent {
                 )
             })}
           </List>
+
           <Button className= "reset" type="submit" onClick={this.handleReset} >
             Reset
           </Button>

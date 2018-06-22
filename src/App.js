@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route} from 'react-router-dom'
 import './App.css';
 import MatchesContainer from './components/MatchesContainer'
 import WelcomeContainer from './components/WelcomeContainer'
@@ -10,32 +10,28 @@ import Login from './components/SignIn'
 import SignUp from './components/SignUp'
 import Header from './components/header'
 import Favicon from 'react-favicon';
-import Badge from '@material-ui/core/Badge';
-import { connect } from 'react-redux'
 // import SignOutButton from './components/SignOut';
-
+import { firebase } from './firebase';
 
 class App extends Component {
 
+  state = {
+    authUser: null,
+  };
 
+  componentDidMount() {
+    firebase.auth.onAuthStateChanged(authUser => {
+      authUser? this.setState(() => ({ authUser })) : this.setState(() => ({ authUser: null }));
+    })
+  }
 
   render() {
+    const {authUser} = this.state
 
     return (
       <div className="App">
         <Favicon url={require('./img/vondelbuddies_favicon.png')} />
-        <header>
-          <Header />
-          {/* <div className="home">
-            <Link to={'/matches'}><img src={require('./img/search_icon.png')} alt="home"/></Link>
-          </div>
-          <div className="profile">
-            <Badge matches={acceptedMatches} badgeContent={acceptedMatches.length} color="primary">
-              <Link to={'/mymatches'}><img src={require('./img/profile_icon.png')} alt="profile"/></Link>
-            </Badge>
-
-          </div> */}
-        </header>
+        {authUser && (<header><Header /> </header>) }
         <main>
           <Route exact path="/" component={Login} />
           <Route exact path="/signup" component={SignUp} />

@@ -34,8 +34,6 @@ export const setUser = (id) =>  {
           phone:'0625273211'
         }
         
-        console.log(finalUserObj);
-        
         dispatch(setUserInit(finalUserObj))
     })
   }  

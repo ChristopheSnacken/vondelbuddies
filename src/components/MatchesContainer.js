@@ -1,5 +1,7 @@
 import * as React from 'react'
+import { compose } from 'redux'
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Matches from './Matches'
 import { updateMatches, setMatches } from '../actions/matches'
 import { firebase } from '../firebase';
@@ -17,18 +19,21 @@ class MatchesContainer extends React.PureComponent {
       if(authUser){
         this.setState(() => ({ authUser }))
         this.props.setUser(authUser.uid)
-      }
-      else{
+      } else {
         this.setState(() => ({ authUser: null }));
+        this.props.history.push('/login');
       }
     })
 
-    db.onceGetUsers()
+    this.props.matches.length === 0 && db.onceGetUsers()
+
       .then(snapshot => {
         this.props.setMatches(Object.values(snapshot.val()))
         this.props.updateMatches(this.filterMatches())
       })
-    }
+
+  }
+
 
   filterMatches = () => {
     const { activeUser, matches } = this.props
@@ -74,6 +79,8 @@ class MatchesContainer extends React.PureComponent {
     matches[newMatchIndex].accepted = true
     this.props.updateMatches(matches)
     this.filterMatches()
+    // TODO: update current user in users array in firebase with accepted user
+
   }
 
   reject = (id) => {
@@ -83,12 +90,15 @@ class MatchesContainer extends React.PureComponent {
 
     matches[newMatchIndex].rejected = true
     this.props.updateMatches(this.filterMatches(matches))
+     // TODO: update current user in users array in firebase with rejected user
+    let userObj = this.props.activeUser
+    userObj.matches = matches
+
   }
 
   render () {
-    console.log(this.props);
       return (
-        <Matches location={this.props.location} matches={this.props.matches} accept={this.accept} reject={this.reject}/>
+          <Matches location={this.props.location} matches={this.props.matches} accept={this.accept} reject={this.reject}/>
       )
   }
 }
@@ -101,4 +111,9 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, { updateMatches, setUser, setMatches})(MatchesContainer);
+
+export default compose(
+  connect(mapStateToProps, { updateMatches, setUser, setMatches }),
+  withRouter
+)(MatchesContainer);
+
