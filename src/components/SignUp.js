@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import { setUser } from '../actions/activeuser'
-//import { setMatchesInit } from '../actions/matches'
+import { setMatchesInit } from '../actions/matches'
 
 const SignUpPages = ({ history }) =>
   <div>
