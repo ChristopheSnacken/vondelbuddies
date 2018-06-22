@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import { setUser } from '../actions/activeuser'
-//import { setMatchesInit } from '../actions/matches'
+import { setMatchesInit } from '../actions/matches'
 
 const SignUpPages = ({ history }) =>
   <div>
@@ -94,6 +94,7 @@ class SignUpForm extends Component {
 
     return (
         <form onSubmit={this.onSubmit}>
+        <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
           <TextField
             value={username}
             onChange={event => this.setState(byPropKey('username', event.target.value))}
@@ -143,4 +144,3 @@ export const SignUpPage = withRouter(SignUpPages);
 export default connect(
 
   null, { setUser,setMatchesInit })(SignUpForm);
-

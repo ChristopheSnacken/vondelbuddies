@@ -11,7 +11,7 @@ export default class Level extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = {age: ''};
+    this.state = {age: 25};
 
     this.handleChange = this.handleChange.bind(this);
   }
