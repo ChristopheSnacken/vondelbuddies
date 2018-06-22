@@ -49,7 +49,7 @@ class SignUpForm extends Component {
       .then(authUser => {
 
 
-        db.doCreateUser(authUser.user.uid, username, email,'This is my super cool bio',generateIMG(),'Vondelpark','0625273211')
+        db.doCreateUser(authUser.user.uid, username, email,"It's a death trap, it's a suicide rap \n We gotta get out while we're young \n`Cause tramps like us, baby we were born to run ",generateIMG(),'Vondelpark','0625273211')
           .then(() => {
 
             this.props.setUser(authUser.user.uid)
