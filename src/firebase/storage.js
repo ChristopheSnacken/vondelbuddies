@@ -16,4 +16,3 @@ export const uploadImage = (image) => {
   // db.ref(`users/${id}`).update({
   //   ...user,
   // })
-}
