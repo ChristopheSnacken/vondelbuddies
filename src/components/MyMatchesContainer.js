@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom';
 import { firebase } from '../firebase';
-import {setUser} from '../actions/activeuser'
 
 class MyMatchesContainer extends React.PureComponent{
 
@@ -16,12 +15,12 @@ class MyMatchesContainer extends React.PureComponent{
     firebase.auth.onAuthStateChanged(authUser => {
       if(authUser){
         this.setState(() => ({ authUser }))
-        this.props.setUser(authUser.uid)
-      }
+        // this.props.setUser(authUser.uid)
+      } 
       else{
         this.setState(() => ({ authUser: null }));
         this.props.history.push('/login');
-      }
+      } 
     })
 
   }
@@ -46,6 +45,6 @@ const mapStateToProps = (state) => {
 
 
 export default compose(
-  connect(mapStateToProps, {setUser}),
+  connect(mapStateToProps),
   withRouter
 )(MyMatchesContainer);
