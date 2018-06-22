@@ -41,6 +41,7 @@
   width: 90%;
   flex-grow: 2;
   justify-content: flex-end;
+  flex-shrink: 0;
 }
 
 .btn-small {
