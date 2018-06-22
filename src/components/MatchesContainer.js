@@ -26,11 +26,14 @@ class MatchesContainer extends React.PureComponent {
     })
 
     this.props.matches.length === 0 && db.onceGetUsers()
+
       .then(snapshot => {
         this.props.setMatches(Object.values(snapshot.val()))
         this.props.updateMatches(this.filterMatches())
       })
+
   }
+
 
   filterMatches = () => {
     const { activeUser, matches } = this.props
@@ -108,7 +111,9 @@ const mapStateToProps = (state) => {
   };
 }
 
+
 export default compose(
   connect(mapStateToProps, { updateMatches, setUser, setMatches }),
   withRouter
 )(MatchesContainer);
+
