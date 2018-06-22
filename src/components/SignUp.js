@@ -48,14 +48,14 @@ class SignUpForm extends Component {
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
 
-        
+
         db.doCreateUser(authUser.user.uid, username, email,'This is my super cool bio',generateIMG(),'Vondelpark','0625273211')
-          .then(() => {  
-            
+          .then(() => {
+
             this.props.setUser(authUser.user.uid)
-            
+
             this.props.setMatchesInit()
-            
+
 
 
             this.setState(() => ({ ...INITIAL_STATE }));
@@ -142,11 +142,3 @@ export const SignUpPage = withRouter(SignUpPages);
 export default connect(
 
   null, { setUser,setMatchesInit })(SignUpForm);
-
-
-
-
-  
-  
-  
-
