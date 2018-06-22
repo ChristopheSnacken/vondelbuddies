@@ -46,6 +46,6 @@ const mapStateToProps = (state) => {
 
 
 export default compose(
-  connect(mapStateToProps,{setUser}),
+  connect(mapStateToProps, {setUser}),
   withRouter
 )(MyMatchesContainer);
