@@ -18,6 +18,7 @@ class Matches extends React.PureComponent {
   state = {
     index: 0
   }
+
   setIndex = () => {
     const location = this.props.location
     if(location.query !== undefined) {
@@ -42,7 +43,7 @@ class Matches extends React.PureComponent {
       </BindKeyboardSwipeableViews>
     )
   }
-  
+
   onClickHandler = (id, action) => {
     let index = this.state.index
     switch(action) {
@@ -67,11 +68,12 @@ class Matches extends React.PureComponent {
 
   renderMatch = (match) => {
     match.sports = match.sports || []
+    console.log(match)
     const levels = {0: "Beginner", 1:"Intermediate", 2:"Advanced"}
     return (
       <div className="match-container" key={match.id} style={Object.assign({}, styles.slide)}>
         <div className="match-img">
-          <img src={require(`../img/foto_${match.img}.png`)} alt="home"/>
+          <img src={require(`../img/foto_${match.img || 0}.png`)} alt="home"/>
 
         </div>
         <div className="flex-container">
@@ -82,7 +84,6 @@ class Matches extends React.PureComponent {
             <li><b>Sports:</b> {match.sports.join(", ")}</li>
             <li><b>Bio:</b> {match.bio}</li>
 
-{/* <button className="btn_WhatsApp"></button> */}
             { match.accepted &&
               <a className="match-control-chat" href={`https://api.whatsapp.com/send?phone=${match.phone}`}> <img className="WhatsApp" src={whatsapp} alt="whatsapp" /></a>
             }
