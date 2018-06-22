@@ -1,12 +1,7 @@
 import React, { PureComponent } from 'react'
 import '../UserProfilesContainer.css'
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-
-import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
@@ -16,7 +11,7 @@ export default class Level extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = {age: ''};
+    this.state = {age: 25};
 
     this.handleChange = this.handleChange.bind(this);
   }

@@ -54,8 +54,8 @@ class SignUpForm extends Component {
 
             this.props.setUser(authUser.user.uid)
 
-            this.props.setMatchesInit()
 
+            this.props.setMatchesInit()
 
 
             this.setState(() => ({ ...INITIAL_STATE }));
@@ -94,6 +94,7 @@ class SignUpForm extends Component {
 
     return (
         <form onSubmit={this.onSubmit}>
+        <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
           <TextField
             value={username}
             onChange={event => this.setState(byPropKey('username', event.target.value))}
@@ -137,6 +138,7 @@ class SignUpForm extends Component {
 }
 
 export const SignUpPage = withRouter(SignUpPages);
+
 
 
 export default connect(

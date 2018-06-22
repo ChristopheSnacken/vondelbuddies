@@ -16,7 +16,7 @@ export const setMatchesInit = () =>  {
       .then(snapshot => {
       dispatch(setMatches(Object.values(snapshot.val())))
     })
-  }  
+  }
 }
 
 export const updateMatches = (matches) =>  {

@@ -93,7 +93,7 @@ getStepContent = step => {
         <Stepper   activeStep={activeStep} orientation="vertical">
           {steps.map((label, index) => {
             return (
-              <Step key={label}>
+              <Step key={index}>
                 <StepLabel ><h2>{label}</h2></StepLabel>
                 <StepContent>
                   <div className="step-profiles" >{this.getStepContent(index)}</div >
@@ -141,7 +141,6 @@ getStepContent = step => {
   }
 }
 const mapStateToProps = state => {
-  console.log(state)
   return {
     activeUser: state.activeUser
 

@@ -3,7 +3,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Matches from './Matches'
-import { setMatchesInit, updateMatches, setMatches } from '../actions/matches'
+import { updateMatches, setMatches } from '../actions/matches'
 import { firebase } from '../firebase';
 import { setUser } from '../actions/activeuser'
 import { db } from '../firebase';
@@ -25,12 +25,22 @@ class MatchesContainer extends React.PureComponent {
       }
     })
 
-    db.onceGetUsers()
-      .then(snapshot => {
-        this.props.setMatches(Object.values(snapshot.val()))
+    this.props.matches.length === 0 && db.onceGetUsers()
+      .then((snapshot) => Object.values(snapshot.val()))
+      .then(result => result.filter(match => this.filterMatches(match)))
+      .then(matches => {
+        this.props.setMatches(matches)
         this.props.updateMatches(this.filterMatches())
       })
+
+      this.props.matches.length > 0 && this.props.updateMatches(this.filterMatches())
+
+    }
+
+  validateMatchProperty = (property) => {
+    return typeof property !== "undefined" && property !== null
   }
+
 
   filterMatches = () => {
     const { activeUser, matches } = this.props
@@ -40,6 +50,7 @@ class MatchesContainer extends React.PureComponent {
         this.filterMatchesByAge(match, activeUser) &&
         this.filterMatchesByLevel(match, activeUser) &&
         this.filterMatchesByPark(match, activeUser) &&
+        this.filterSelf(match, activeUser) &&
         !match.rejected
       )
     }).sort()
@@ -47,7 +58,7 @@ class MatchesContainer extends React.PureComponent {
 
   filterMatchesBySports = (match, activeUser) => {
     const isMatch = activeUser.sports.find(sport => {
-      return match.sports.indexOf(sport)
+      return match.sports.includes(sport)
     })
 
     if(typeof isMatch === "undefined") {
@@ -66,6 +77,10 @@ class MatchesContainer extends React.PureComponent {
 
   filterMatchesByPark = (match, activeUser) => {
     return activeUser.park === match.park
+  }
+
+  filterSelf = (match, activeUser) => {
+    return match.id !== activeUser.id
   }
 
   accept = (id) => {
@@ -94,7 +109,6 @@ class MatchesContainer extends React.PureComponent {
   }
 
   render () {
-    console.log(this.props);
       return (
           <Matches location={this.props.location} matches={this.props.matches} accept={this.accept} reject={this.reject}/>
       )
@@ -109,7 +123,9 @@ const mapStateToProps = (state) => {
   };
 }
 
+
 export default compose(
   connect(mapStateToProps, { updateMatches, setUser, setMatches }),
   withRouter
 )(MatchesContainer);
+
