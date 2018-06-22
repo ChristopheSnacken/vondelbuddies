@@ -1,7 +1,6 @@
 import { SET_USER, ACTIVE_USER_UPDATE } from '../actions/activeuser'
 
 const reducer = (state = {}, action ) => {
-    console.log('reducer');
     switch(action.type) {
       case SET_USER:
         return action.payload  

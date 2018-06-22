@@ -3,7 +3,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Matches from './Matches'
-import { setMatchesInit, updateMatches, setMatches } from '../actions/matches'
+import { updateMatches, setMatches } from '../actions/matches'
 import { firebase } from '../firebase';
 import { setUser } from '../actions/activeuser'
 import { db } from '../firebase';
@@ -94,7 +94,6 @@ class MatchesContainer extends React.PureComponent {
   }
 
   render () {
-    console.log(this.props);
       return (
           <Matches location={this.props.location} matches={this.props.matches} accept={this.accept} reject={this.reject}/>
       )

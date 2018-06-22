@@ -20,7 +20,6 @@ export const onceGetUsers = () =>
 
 export const updateUser = (id, user, key=null, newValue=null) => {
   // user[key] = newValue;
-  console.log(user);
   
   db.ref(`users/${id}`).update({
     ...user,
