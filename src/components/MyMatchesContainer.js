@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom';
 import { firebase } from '../firebase';
-import { setUser } from '../actions/activeuser'
+import {setUser} from '../actions/activeuser'
 
 class MyMatchesContainer extends React.PureComponent{
 
