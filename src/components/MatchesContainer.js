@@ -25,7 +25,7 @@ class MatchesContainer extends React.PureComponent {
       }
     })
 
-    db.onceGetUsers()
+    this.props.matches.length === 0 && db.onceGetUsers()
       .then(snapshot => {
         this.props.setMatches(Object.values(snapshot.val()))
         this.props.updateMatches(this.filterMatches())
