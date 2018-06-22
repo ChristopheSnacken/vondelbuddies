@@ -94,6 +94,7 @@ class SignUpForm extends Component {
 
     return (
         <form onSubmit={this.onSubmit}>
+        <div className='logo'><img src={require('../img/vondelbuddies_logo.png')} alt=""/></div>
           <TextField
             value={username}
             onChange={event => this.setState(byPropKey('username', event.target.value))}

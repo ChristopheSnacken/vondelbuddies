@@ -10,7 +10,6 @@ import Login from './components/SignIn'
 import SignUp from './components/SignUp'
 import Header from './components/header'
 import Favicon from 'react-favicon';
-// import SignOutButton from './components/SignOut';
 import { firebase } from './firebase';
 
 class App extends Component {
