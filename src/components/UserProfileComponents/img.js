@@ -12,32 +12,31 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 
-
 export default class Img extends PureComponent {
-  state = {img: '0'};
+  state = {img: ''};
 
   handleChange = (event) => { // lamba's lexically scoped, functions zijn dynamically scoped
     this.setState({img: event.target.value})
   }
 
-  submitForm = () => {
+  submitForm = (event) => {
+    event.preventDefault()
+    console.log("test", this.state.img, "img2")
     this.props.updateImg(this.state.img);
   }
 
   render () {
 
-// method="post"
-// {this.state.img}
     return (
       <div  >
         <form onSubmit={this.submitForm}  enctype="multipart/form-data">
           <div className= "UploadImg">
               <div><input style={{
               height: 30, borderColor: 'gray', borderWidth: 1, color : "gray"
-            }} onChange={this.handleChangetype} type="file" name="image" accept="image/*" capture="user"/></div>
-              <div><input  style={{
+            }} onChange={this.handleChange} value={this.state.img} type="file" name="image" capture="user"/></div>
+              <div><input style={{
               height: 30, width: 85, borderColor: 'gray', borderWidth: 1, color : "black", marginTop: 10
-            }} type="submit" title="Change Text!" value="Upload"/></div>
+            }} type="submit"/></div>
           </div>
         </form>
       </div>

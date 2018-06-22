@@ -5,7 +5,7 @@ var config = {
     authDomain: "vondelbuddies.firebaseapp.com",
     databaseURL: "https://vondelbuddies.firebaseio.com",
     projectId: "vondelbuddies",
-    storageBucket: "",
+    storageBucket: "gs://vondelbuddies.appspot.com",
     messagingSenderId: "57423944320"
 }
 
@@ -20,4 +20,5 @@ const storage = firebase.storage();
 export {
   db,
   auth,
+  storage
 };

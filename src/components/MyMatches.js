@@ -7,20 +7,20 @@ import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import { connect } from 'react-redux';
 import { updateUser } from '../actions/activeuser'
-import { db } from '../firebase';
-
+import { db, storage } from '../firebase';
 
 
 
 class MyMatches extends PureComponent {
-
   updateactiveUserImg = img => {
+    console.log("yo")
+    console.log(img)
       const {activeUser} = this.props
       const newUser = activeUser
       newUser.img = img
-      this.props.updateUser(newUser)
-      db.updateUser(activeUser.id, newUser)
+      storage.uploadImage(activeUser.id, img)
   }
+
 
   render() {
     const { activeUser, matches } = this.props
