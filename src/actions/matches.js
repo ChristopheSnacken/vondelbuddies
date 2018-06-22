@@ -9,15 +9,15 @@ export const setMatches = (matches) =>  {
     payload: matches
   }
 }
-
-export const setMatchesInit = () =>  {
-  return function (dispatch) {
-    db.onceGetUsers()
-      .then(snapshot => {
-      dispatch(setMatches(Object.values(snapshot.val())))
-    })
-  }  
-}
+// 
+// export const setMatchesInit = () =>  {
+//   return function (dispatch) {
+//     db.onceGetUsers()
+//       .then(snapshot => {
+//       dispatch(setMatches(Object.values(snapshot.val())))
+//     })
+//   }
+// }
 
 export const updateMatches = (matches) =>  {
   return {

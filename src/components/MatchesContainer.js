@@ -41,6 +41,7 @@ class MatchesContainer extends React.PureComponent {
     return typeof property !== "undefined" && property !== null
   }
 
+
   filterMatches = () => {
     const { activeUser, matches } = this.props
     return matches.filter(match => {
@@ -122,7 +123,9 @@ const mapStateToProps = (state) => {
   };
 }
 
+
 export default compose(
   connect(mapStateToProps, { updateMatches, setUser, setMatches }),
   withRouter
 )(MatchesContainer);
+
