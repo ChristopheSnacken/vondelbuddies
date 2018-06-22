@@ -26,12 +26,19 @@ class MatchesContainer extends React.PureComponent {
     })
 
     this.props.matches.length === 0 && db.onceGetUsers()
-
-      .then(snapshot => {
-        this.props.setMatches(Object.values(snapshot.val()))
+      .then((snapshot) => Object.values(snapshot.val()))
+      .then(result => result.filter(match => this.filterMatches(match)))
+      .then(matches => {
+        this.props.setMatches(matches)
         this.props.updateMatches(this.filterMatches())
       })
 
+      this.props.matches.length > 0 && this.props.updateMatches(this.filterMatches())
+
+    }
+
+  validateMatchProperty = (property) => {
+    return typeof property !== "undefined" && property !== null
   }
 
 
@@ -43,6 +50,7 @@ class MatchesContainer extends React.PureComponent {
         this.filterMatchesByAge(match, activeUser) &&
         this.filterMatchesByLevel(match, activeUser) &&
         this.filterMatchesByPark(match, activeUser) &&
+        this.filterSelf(match, activeUser) &&
         !match.rejected
       )
     }).sort()
@@ -50,7 +58,7 @@ class MatchesContainer extends React.PureComponent {
 
   filterMatchesBySports = (match, activeUser) => {
     const isMatch = activeUser.sports.find(sport => {
-      return match.sports.indexOf(sport)
+      return match.sports.includes(sport)
     })
 
     if(typeof isMatch === "undefined") {
@@ -69,6 +77,10 @@ class MatchesContainer extends React.PureComponent {
 
   filterMatchesByPark = (match, activeUser) => {
     return activeUser.park === match.park
+  }
+
+  filterSelf = (match, activeUser) => {
+    return match.id !== activeUser.id
   }
 
   accept = (id) => {
